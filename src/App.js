@@ -1,5 +1,5 @@
 import React from 'react';
-import SimpleMap from "./SimpleMap";
+import SimpleMap from './SimpleMap';
 
 const App = ()=> {
   return (
