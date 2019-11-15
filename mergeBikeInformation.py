@@ -14,31 +14,31 @@ def collectData():
          rides = csv.DictReader(csvfile)
          for ride in rides:
              rideId = ride['Fahrt: Name']
-             information=ride.keys()
-             for key in information:
-                 if key not in blacklist:
+             columns=ride.keys()
+             for column in columns:
+                 if column not in blacklist:
                      if rideId not in ridesInformation:
                          innerDict={}
-                         innerDict[key]=ride[key]
-                         ridesInformation[rideId]=innerDict
                      else:
-                        ridesInformation[rideId][key]=ride[key]
+                        innerDict = ridesInformation[rideId]
+                     if column == 'Ende':
+                         innerDict = splitDate(ride[column], innerDict)
+                     else:
+                        innerDict[column]=ride[column]
+                     ridesInformation[rideId]=innerDict
 
-def splitEndDate(endDate):
-    dateAndTime = endDate.split(' ')
+def splitDate(date, dictionary):
+    dateAndTime = date.split(' ')
     date = dateAndTime[0]
     time = dateAndTime[1]
-    ridesInformation[ride]['endDate'] = date
-    ridesInformation[ride]['endTime'] = time
+    dictionary['endDate'] = date
+    dictionary['endTime'] = time
+    return dictionary
 
 # We remove entries which have less than 6 fields, as they can not have all the information we need
 def cleanData(ride):
     if len(ridesInformation[ride].keys())<6:
         ridesInformation[ride]= None
-    else
-        splitEndDate(ridesInformation[ride]['Ende'])
-
-def stripDates():
 
 
 collectData()
