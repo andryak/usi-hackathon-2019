@@ -12,7 +12,7 @@ const simpleProps = {
 const SimpleMap = () => (
   <div style={{ height: '100vh', width: '100%' }}>
     <GoogleMapReact
-      bootstrapURLKeys={{ key: process.env.REACT_APP_MAP_KEY }}
+      bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_KEY }}
       defaultCenter={simpleProps.center}
       defaultZoom={simpleProps.zoom}
     />
