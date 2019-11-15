@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 24rem;
+    box-shadow: 2px 0 10px -2px #eee;
+}
+
+.mainPanel {
+    flex: 1;
+}
