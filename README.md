@@ -1,68 +1,64 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## BikeMeThere
 
-## Available Scripts
+BikeMeThere is an application for getting around Lugano (potentially other
+cities as well) with PubliBike.
 
-In the project directory, you can run:
+### Move around by bike
 
-### `yarn start`
+The application will suggest the fastest routes for going towards your 
+destination (à la Google Maps), by taking into account the rental service
+provided by PubliBike. The app will also inform you about the estimated number
+of bikes available in all PubliBike station, making sure you don't end up in a
+station without any bike available.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Be part of the solution
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+When asking for directions, the application might also suggest you slightly less
+optimal routes, asking you to park bikes in stations slightly more distant from
+your destination. Why, you ask? If you park your bike in a station with low
+availability, you will be rewarded with awesome prices! This way, BikeMeThere
+will ensure bikes are always available in all PubliBike stations.
 
-### `yarn test`
+### Sustainability and cooperation
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The aim of BikeMeThere is to encourage people to move around in a eco-friendly
+way. Helping moving bikes to stations with low availability is not only a way
+for people to get rewarded with prices and a sense of self-accomplishment, but
+it is also a way to further improve sustainability by reducing the need of
+car-based services for transporting bikes from one station to another. In
+addition to that, the PubliBike service will also be more reliable.
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## How to Run
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+The application is written in React and is aimed for running in all major
+browsers.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
 
-### `yarn eject`
+You will need the following tools
+- [Yarn](https://yarnpkg.com/lang/en/)
+- [Node](https://nodejs.org/en/), version 11 (newer versions are not supported
+by React)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Installation
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+First, install dependencies with
+```
+yarn install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Then, you will need to add a `.env` file in the root of the project, containing
+the Google API key needed for getting directions and displaying the map
+```
+REACT_APP_GOOGLE_KEY=<api_key>
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Run
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+To try the application, run
+```
+yarn start
+```
+The application should open automatically in the browser, at the address
+`http://localhost:3000`.
