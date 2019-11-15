@@ -23,6 +23,11 @@
     "rules": {
         "semi-spacing": ["error", {"before": false, "after": true}],
         "semi-style": ["error", "last"],
-        "quotes": ["error", "single"]
+        "quotes": ["error", "single"],
+        "space-before-function-paren": ["error", {
+            "anonymous": "always",
+            "named": "never",
+            "asyncArrow": "always"
+        }]
     }
 }

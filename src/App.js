@@ -1,7 +1,7 @@
 import React from 'react';
 import SimpleMap from './SimpleMap';
 
-const App = ()=> {
+const App = () => {
   return (
     <div className="App">
       BikeMeThere

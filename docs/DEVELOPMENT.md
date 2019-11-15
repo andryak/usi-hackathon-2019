@@ -1,6 +1,6 @@
 # Development documentation
 
-##Using Google Maps with React
+## Using Google Maps with React
 
 We can access maps objects by using onGoogleApiLoaded, in this case we will need to set yesIWantToUseGoogleMapApiInternals to true
 
