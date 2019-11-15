@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import GoogleMapReact from 'google-map-react';
+import PropTypes from 'prop-types';
 
 const simpleProps = {
   center: {
@@ -9,14 +10,57 @@ const simpleProps = {
   zoom: 14
 };
 
-const SimpleMap = () => (
-  <div style={{ height: '100vh', width: '100%' }}>
-    <GoogleMapReact
-      bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_KEY }}
-      defaultCenter={simpleProps.center}
-      defaultZoom={simpleProps.zoom}
-    />
-  </div>
-);
+const Marker = ({ text }) => <div>{text}</div>;
+
+const SimpleMap = () => {
+
+  const apiIsLoaded = (map, maps, places)=>{
+    showPosition(map)
+  };
+
+  const showPosition = (map) => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        const pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+        setCurrentPosition(pos);
+        map.setCenter(pos);
+
+      }, function (e) {
+        console.log(e)
+      });
+    } else {
+      console.log('error')
+    }
+  };
+
+  const [currentPosition, setCurrentPosition] = useState(null);
+
+  return (
+    <div style={{height: '100vh', width: '100%'}}>
+      <GoogleMapReact
+        yesIWantToUseGoogleMapApiInternals
+        onGoogleApiLoaded={({map, maps}) => apiIsLoaded(map, maps)}
+        bootstrapURLKeys={{key: process.env.REACT_APP_GOOGLE_KEY}}
+        defaultCenter={simpleProps.center}
+        defaultZoom={simpleProps.zoom}
+
+      >
+        {currentPosition && <Marker
+          key={1}
+          text='Your Position'
+          lat={currentPosition.lat}
+          lng={currentPosition.lng}
+        />}
+      </GoogleMapReact>
+    </div>
+  );
+};
+
+Marker.propTypes = {
+  text: PropTypes.string,
+};
 
 export default SimpleMap;
