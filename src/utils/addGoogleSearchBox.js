@@ -9,20 +9,20 @@ let destinationMarker = null;
 let paths = null;
 let alternativePaths = null;
 
-const addGoogleSearchBox = (map, maps, fromRef, toRef) => {
-  const originSearchBox = new maps.places.SearchBox(fromRef.current);
-  const destinationSearchBox = new maps.places.SearchBox(toRef.current);
-  const searchBounds = new maps.LatLngBounds(
-    new maps.LatLng(45.917775, 8.873512),
-    new maps.LatLng(46.069719, 9.035068)
-  );
-  addSearchListener(originSearchBox, map, maps, originMarker, false);
-  addSearchListener(destinationSearchBox, map, maps, destinationMarker, true);
-  originSearchBox.setBounds(searchBounds);
-  destinationSearchBox.setBounds(searchBounds);
+const addGoogleSearchBox = (map, maps, fromRef, toRef, onPathFound) => {
+    const originSearchBox = new maps.places.SearchBox(fromRef.current);
+    const destinationSearchBox = new maps.places.SearchBox(toRef.current);
+    const searchBounds = new maps.LatLngBounds(
+        new maps.LatLng(45.917775, 8.873512),
+        new maps.LatLng(46.069719, 9.035068)
+    );
+    addSearchListener(originSearchBox, map, maps, originMarker, false, onPathFound);
+    addSearchListener(destinationSearchBox, map, maps, destinationMarker, true, onPathFound);
+    originSearchBox.setBounds(searchBounds);
+    destinationSearchBox.setBounds(searchBounds);
 };
 
-const addSearchListener = (searchBox, map, maps, marker, dest) => {
+const addSearchListener = (searchBox, map, maps, marker, dest, onPathFound) => {
   let location = null;
   maps.event.addListener(searchBox, 'places_changed', () => {
     searchBox.set('map', null);
@@ -86,30 +86,41 @@ const addSearchListener = (searchBox, map, maps, marker, dest) => {
                 alternativePaths.forEach(path => path.setMap(map))
               }
 
-              // Draw shortest path
-              paths = result.shortest.map(({ transport, overviewPath }) => new maps.Polyline({
-                path: overviewPath,
-                geodesic: true,
-                strokeColor: 'rgb(11, 104, 255)',
-                strokeOpacity: transport === 'WALKING' ? 0 : 1,
-                strokeWeight: 5,
-                icons: [{
-                  icon: lineSymbol,
-                  offset: '0',
-                  repeat: '20px'
-                }],
-              }));
+                        if (result.alternative) {
+                            alternativePaths = result.alternative.map(
+                                ({ transport, overviewPath }) =>
+                                    new maps.Polyline({
+                                        path: overviewPath,
+                                        geodesic: true,
+                                        strokeColor: '#b4b4b4',
+                                        strokeOpacity: 1,
+                                        strokeWeight: 5
+                                    })
+                            );
+                            alternativePaths.forEach(path => path.setMap(map));
+                        }
 
-              paths.forEach(path => path.setMap(map));
-            });
-        }
-        const title = dest ? 'Destination': 'Starting position';
-        marker = createUniqueMarker(map, maps, title, location.lat(), location.lng(), positionMarker, true);
-        marker.setMap(map);
-      }
-    })(place);
-    searchBox.set('map', map);
-  });
+                        paths.forEach(path => path.setMap(map));
+                        onPathFound(result);
+                    });
+
+                }
+                const title = dest ? 'Destination' : 'Starting position';
+                marker = createUniqueMarker(
+                    map,
+                    maps,
+                    title,
+                    location.lat(),
+                    location.lng(),
+                    positionMarker,
+                    true
+                );
+                marker.setMap(map);
+                map.panTo(marker.position);
+            }
+        })(place);
+        searchBox.set('map', map);
+    });
 };
 
 export default addGoogleSearchBox;
