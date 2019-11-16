@@ -19,18 +19,18 @@ const fancyTimeFormat = time => {
     return ret;
 };
 
-const TripTime = ({path}) => {
+const TripTime = ({path,alternative}) => {
     const {transport, duration} = path;
     return (
         <div className={styles.tripContainer}>
-            <div className={classNames(styles.tripTimeContainer, transport === 'WALKING'?styles.tripWalking : styles.tripBike)}>
-                {transport === 'WALKING' ? <div className={styles.dotTop}/>:null}
+            <div className={classNames(styles.tripTimeContainer, transport === 'WALKING'? styles.tripWalking : styles.tripBike, alternative ? styles.alternative : styles.short)}>
+                {transport === 'WALKING' ? <div className={classNames(styles.dotTop, alternative ? styles.dotAlternative : styles.dotShort)}/>:null}
                 {transport === 'WALKING'
                     ? <DirectionsWalkOutlined fontSize={'large'} className={styles.tripTimeIcon}/>
                     : <DirectionsBikeOutlined fontSize={'large'} className={styles.tripTimeIcon}/>
                 }
                 <div className={styles.tripDuration}>{fancyTimeFormat(duration)}</div>
-                {transport === 'WALKING' ? <div className={styles.dotBottom}/>: null}
+                {transport === 'WALKING' ? <div className={classNames(styles.dotBottom, alternative ? styles.dotAlternative : styles.dotShort)}/>: null}
             </div>
         </div>
     )
@@ -38,10 +38,11 @@ const TripTime = ({path}) => {
 
 TripTime.propTypes = {
     path: PropTypes.any,
-    transport: PropTypes.any,
-    duration: PropTypes.any,
-
+    alternative: PropTypes.bool
 };
 
+TripTime.defaultProps={
+    alternative:false
+}
 export default TripTime;
 
