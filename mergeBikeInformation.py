@@ -2,7 +2,7 @@ import csv
 import json
 from os import listdir
 from os.path import isfile, join
-dir = './data/publibike/'
+dir = '../publibike/rides/'
 
 blacklist=['Zugangsmedium Typ','Kunden Gruppe', 'Tarif','Ende - Stunde','Fahrt: Name']
 
@@ -48,8 +48,9 @@ for ride in ridesInformation.keys():
 
 
 
-with open('result.json', 'w') as f:
+with open(dir+'result.json', 'w') as f:
     json.dump(ridesInformation, f)
+
 
 #
 #
