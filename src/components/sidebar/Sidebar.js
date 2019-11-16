@@ -23,7 +23,10 @@ const Sidebar = ({ className, fromRef, toRef, paths, mapHandler }) => {
         <div>
           <div className={styles.inputContainer}>
             <div className={styles.iconContainer}>
-              <RoomOutlined onClick={()=>geoCoder(mapHandler,fromRef,'start')} className={styles.icon} />
+              <i
+                className={classNames('fas fa-map-marker-alt', styles.icon)}
+                onClick={()=>geoCoder(mapHandler,fromRef,'start')}
+              />
             </div>
             <input
               ref={fromRef}
@@ -34,7 +37,10 @@ const Sidebar = ({ className, fromRef, toRef, paths, mapHandler }) => {
           </div>
           <div className={classNames(styles.inputContainer, styles.secondInput)}>
             <div className={styles.iconContainer}>
-              <FlagOutlined onClick={()=>geoCoder(mapHandler,toRef, 'dest')} className={styles.icon} />
+              <i
+                className={classNames('far fa-flag', styles.icon)}
+                onClick={() => geoCoder(mapHandler,toRef, 'dest')}
+              />
             </div>
             <input
               ref={toRef}
