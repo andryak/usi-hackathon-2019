@@ -12,7 +12,7 @@ const Sidebar = ({ className, fromRef, toRef, mapHandler }) => {
     const [paths, setPaths] = useState(null);
 
   const shortestPath = paths ? paths.shortest : null;
-
+  const alternative = paths ? paths.alternative: null;
   return (
     <nav className={classNames('Sidebar', className, styles.container)}>
       <header className={styles.header}>
@@ -64,7 +64,10 @@ const Sidebar = ({ className, fromRef, toRef, mapHandler }) => {
 
       <div className={styles.content}>
           <div className={styles.overallTripContainer}>
-              {shortestPath && shortestPath.map(path => <TripTime path={path}/>)}
+              {shortestPath && shortestPath.map(path => <TripTime alternative={false} path={path}/>)}
+          </div>
+          <div className={styles.overallTripContainer}>
+              {alternative && alternative.map(path => <TripTime alternative={true} path={path}/>)}
           </div>
       </div>
 

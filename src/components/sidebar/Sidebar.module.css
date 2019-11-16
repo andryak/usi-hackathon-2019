@@ -129,13 +129,22 @@
 }
 
 .tripWalking {
-    border-left:4px dashed rgb(11, 104, 255)
+    border-left:4px dashed
 
 }
 
 .tripBike{
-    border-left:4px solid rgb(11, 104, 255)
+    border-left:4px solid
 }
+
+.alternative{
+    border-color: rgb(255, 96, 0);
+}
+
+.short {
+    border-color: rgb(64, 124, 230);
+}
+
 
 .tripTimeIconContainer {
 
@@ -172,9 +181,18 @@
     left:1.75rem;
     width: 0.5rem;
     height: 0.5rem;
-    border: 2px solid rgb(11, 104, 255);
+    border: 2px solid;
     border-radius: 999px;
-    background-color:  rgb(11, 104, 255);
+}
+
+.dotAlternative{
+    border-color: rgb(255, 96, 0);
+    background-color: rgb(255, 96, 0);
+}
+
+.dotShort{
+    border-color: rgb(64, 124, 230);
+    background-color:rgb(64, 124, 230);
 }
 
 .dotBottom{
@@ -183,22 +201,21 @@
     left:1.75rem;
     width: 0.5rem;
     height: 0.5rem;
-    border: 2px solid rgb(11, 104, 255);
+    border: 2px solid transparent;
     border-radius: 999px;
-    background-color:  rgb(11, 104, 255);
 }
 
 .transparentDot{
     width: 0.8rem;
     /*border: 2px solid transparent;*/
     border-radius: 999px;
-
+    border-color:transparent;
     background-color:transparent;
 }
 
 .dottedLine{
     border:none;
-    border-left:2px dotted rgb(11, 104, 255);
+    border-left:2px dotted rgb(64, 124, 230);
     color:#fff;
     background-color:#fff;
     height:2rem;
@@ -214,7 +231,7 @@
 
 .line{
     border:none;
-    border-left:3px solid rgb(11, 104, 255);
+    border-left:3px solid rgb(64, 124, 230);
     color:#fff;
     background-color:#fff;
     height:2rem;
