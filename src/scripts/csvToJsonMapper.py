@@ -11,7 +11,7 @@ dir = sys.argv[1]
 blacklist = ['Zugangsmedium Typ', 'Kunden Gruppe',
              'Tarif', 'Ende - Stunde', 'Fahrt: Name']
 
-durationStringToMinutes = {
+DURATION_STRING_TO_MINUTES = {
     'bis 5 min': 3,
     '5 bis 10 min': 7,
     '10 bis 30 min': 20,
@@ -20,7 +20,8 @@ durationStringToMinutes = {
     'mehr als 120 min': 120,
 }
 
-weekDays = {
+WEEKDAYS_OCCURRED_IN_DATA_PERIOD = 13
+WEEK_DAYS = {
     '1 Montag': 'monday',
     '2 Dienstag': 'tuesday',
     '3 Mittwoch': 'wednesday',
@@ -30,14 +31,14 @@ weekDays = {
     '7 Sonntag': 'sunday',
 }
 
-bikeTypes = {
+BIKE_TYPES = {
     'Velo': 'bicycle',
     'E-Bike': 'e-bike',
 }
 
 ridesInformation = {}
 
-nameToId = mapStationNameToId(dir)
+MAP_NAME_TO_ID = mapStationNameToId(dir)
 
 
 def collect_data():
@@ -85,7 +86,7 @@ def get_time_range(time):
 def extract_start_and_end_date(ride):
     endDate = ridesInformation[ride]['Ende']
     rideDurationString = ridesInformation[ride]['Ausleihdauer']
-    rideDurationinMinutes = durationStringToMinutes[rideDurationString]
+    rideDurationinMinutes = DURATION_STRING_TO_MINUTES[rideDurationString]
     startDate = sub_time(endDate, rideDurationinMinutes)
     startDayAndTime = startDate.split(' ')
     startDay = startDayAndTime[0]
@@ -113,52 +114,48 @@ def extract_start_and_end_station(ride):
 
 def extract_week_day(ride):
     weekDay = ridesInformation[ride]['Ende Wochentag']
-    ridesInformation[ride]['weekDay'] = weekDays[weekDay]
+    ridesInformation[ride]['weekDay'] = WEEK_DAYS[weekDay]
     del ridesInformation[ride]['Ende Wochentag']
 
 
-def extractBikeType(ride):
+def extract_bike_type(ride):
     bikeType = ridesInformation[ride]['Typ']
-    ridesInformation[ride]['bikeType'] = bikeTypes[bikeType]
+    ridesInformation[ride]['bikeType'] = BIKE_TYPES[bikeType]
     del ridesInformation[ride]['Typ']
 
 
-def createHeatMap(dir):
-    constructStationsDict(dir)
-
-
-def collectRidesByStation(startOrEnd):
+def collect_rides_by_station(startOrEnd):
     stationDict = {}
     for rideId in ridesInformation.keys():
         ride = ridesInformation[rideId]
-        if ride[startOrEnd + 'Station'] in nameToId:
-            stationId = nameToId[ride[startOrEnd + 'Station']]
+        if ride[startOrEnd + 'Station'] in MAP_NAME_TO_ID:
+            stationId = MAP_NAME_TO_ID[ride[startOrEnd + 'Station']]
             if stationId not in stationDict:
                 weekDayDict = {}
             else:
                 weekDayDict = stationDict[stationId]
-                collectRidesByWeekDay(startOrEnd, ride, weekDayDict)
+                collect_rides_by_week_day(startOrEnd, ride, weekDayDict)
             stationDict[stationId] = weekDayDict
     return stationDict
 
 
-def collectRidesByWeekDay(startOrEnd, ride, dayDict):
+def collect_rides_by_week_day(startOrEnd, ride, dayDict):
     if ride['weekDay'] not in dayDict:
         hourDict = {}
     else:
         hourDict = dayDict[ride['weekDay']]
-    countRidesByHours(startOrEnd, ride, hourDict)
+    count_rides_by_hours(startOrEnd, ride, hourDict)
     dayDict[ride['weekDay']] = hourDict
 
 
-def countRidesByHours(startOrEnd, ride, hourDict):
+def count_rides_by_hours(startOrEnd, ride, hourDict):
     if ride[startOrEnd + 'Time'] not in hourDict:
         hourDict[ride[startOrEnd + 'Time']] = 1
     else:
         hourDict[ride[startOrEnd + 'Time']] += 1
 
 
-def getHourDict(rideId, dateDict):
+def get_hour_dict(rideId, dateDict):
     ride = ridesInformation[rideId]
     startDate = ride['startDate']
     if startDate not in dateDict:
@@ -169,9 +166,9 @@ def getHourDict(rideId, dateDict):
     return hourDict
 
 
-def getRidesDataToStationsValue():
-    startDict = divide_numbers_occurences(collectRidesByStation('start'))
-    endDict = divide_numbers_occurences(collectRidesByStation('end'))
+def aggregate_rides_x_stations():
+    startDict = normalize_number_of_occurences(collect_rides_by_station('start'))
+    endDict = normalize_number_of_occurences(collect_rides_by_station('end'))
     stationsDict = constructStationsDict(dir)
     for stationId in stationsDict:
         station = stationsDict[stationId]
@@ -181,14 +178,15 @@ def getRidesDataToStationsValue():
     return stationsDict
 
 
-def divide_numbers_occurences(weekDayDictionary):
+def normalize_number_of_occurences(weekDayDictionary):
     for weekDay in weekDayDictionary:
         hoursDict = weekDayDictionary[weekDay]
         for hour in hoursDict:
             counters = hoursDict[hour]
             for counter in counters:
-                counters[counter] = round(counters[counter] / 13,2)
+                counters[counter] = round(counters[counter] / WEEKDAYS_OCCURRED_IN_DATA_PERIOD, 2)
     return weekDayDictionary
+
 
 collect_data()
 for ride in ridesInformation.copy().keys():
@@ -197,7 +195,7 @@ for ride in ridesInformation.copy().keys():
         extract_start_and_end_date(ride)
         extract_start_and_end_station(ride)
         extract_week_day(ride)
-        extractBikeType(ride)
+        extract_bike_type(ride)
 
-with open(dir + '/rides.json', 'w') as f:
-    json.dump(getRidesDataToStationsValue(), f)
+with open(dir + '/stations.json', 'w') as f:
+    json.dump(aggregate_rides_x_stations(), f)
