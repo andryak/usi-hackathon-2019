@@ -10,7 +10,7 @@ const LUGANO_COORDS = {
 
 const GOOGLE_KEY = process.env.REACT_APP_GOOGLE_KEY;
 
-const Map = ({ qdefaultCenter, defaultZoom, onApiLoaded, publibikeStations }) => (
+const Map = ({ defaultCenter, defaultZoom, onApiLoaded, publibikeStations }) => (
   <div className={styles.map}>
     <GoogleMapReact
       yesIWantToUseGoogleMapApiInternals
