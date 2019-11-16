@@ -4,9 +4,10 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import TripTime from './TripTime';
 import {FlagOutlined, RoomOutlined} from '@material-ui/icons';
+import {runShortestPathAlg} from '../../utils/addGoogleSearchBox';
 
 
-const Sidebar = ({ className, fromRef, toRef, paths }) => {
+const Sidebar = ({ className, fromRef, toRef, paths, mapHandler }) => {
   const shortestPath = paths ? paths.shortest : null;
 
   return (
@@ -36,6 +37,13 @@ const Sidebar = ({ className, fromRef, toRef, paths }) => {
             />
           </div>
         </div>
+        <button
+          onClick={() => {
+            runShortestPathAlg(mapHandler.map, mapHandler.maps);
+          }}
+        >
+          Search
+        </button>
       </header>
       <div className={styles.content}/>
       <div>
