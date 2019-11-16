@@ -8,7 +8,7 @@ let { startMarker, destMarker } = directionPositions.getMarkers();
 let paths = null;
 let alternativePaths = null;
 
-export const runShortestPathAlg = (map, maps) => {
+export const runShortestPathAlg = (map, maps, onPathFound) => {
   const {startPos, destPos} = directionPositions.getPositions();
   if (!startPos || !destPos) {
     // FIXME deduce from inputs.

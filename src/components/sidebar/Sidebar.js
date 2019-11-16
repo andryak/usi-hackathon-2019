@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './Sidebar.module.css';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
@@ -8,7 +8,9 @@ import {runShortestPathAlg} from '../../utils/addGoogleSearchBox';
 import geoCoder from '../../utils/geoCoder';
 
 
-const Sidebar = ({ className, fromRef, toRef, paths, mapHandler }) => {
+const Sidebar = ({ className, fromRef, toRef, mapHandler }) => {
+    const [paths, setPaths] = useState(null);
+
   const shortestPath = paths ? paths.shortest : null;
 
   return (
@@ -47,7 +49,7 @@ const Sidebar = ({ className, fromRef, toRef, paths, mapHandler }) => {
         <button
           className={styles.button}
           onClick={() => {
-            runShortestPathAlg(mapHandler.map, mapHandler.maps);
+            runShortestPathAlg(mapHandler.map, mapHandler.maps, setPaths);
           }}
         >
           Search
