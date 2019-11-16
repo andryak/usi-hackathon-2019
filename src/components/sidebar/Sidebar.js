@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 const Sidebar = ({ className, fromRef, toRef }) => {
   return (
-    <nav className={classNames('Sidebar', className)}>
+    <nav className={classNames('Sidebar', className, styles.container)}>
       <header className={styles.header}>
         <input
           ref={fromRef}
@@ -20,6 +20,7 @@ const Sidebar = ({ className, fromRef, toRef }) => {
           className={classNames(styles.input, styles.secondInput)}
         />
       </header>
+      <div className={styles.content}/>
     </nav>
   );
 };
