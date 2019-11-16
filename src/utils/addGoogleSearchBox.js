@@ -68,35 +68,40 @@ const addSearchListener = (searchBox, map, maps, marker, dest) => {
                   strokeOpacity: 1,
                   scale: 5,
               };
-              // Draw shortest path first.
+
+              // Draw alternative path, so that it might later be overridden by the shortest path.
+              if (result.alternative){
+                alternativePaths = result.alternative.map(({ transport, overviewPath }) => new maps.Polyline({
+                  path: overviewPath,
+                  geodesic: true,
+                  strokeColor: '#67b485',
+                  strokeOpacity: 1,
+                  strokeWeight: 5,
+                  icons: [{
+                    icon: lineSymbol,
+                    offset: '20px',
+                    repeat: '20px'
+                  }],
+                }));
+                alternativePaths.forEach(path => path.setMap(map))
+              }
+
+              // Draw shortest path
               paths = result.shortest.map(({ transport, overviewPath }) => new maps.Polyline({
                 path: overviewPath,
                 geodesic: true,
-                strokeColor:'#a328a2',
-                strokeOpacity: transport === 'WALKING' ? 0:1,
-                strokeWeight: 7,
+                strokeColor:'rgb(11, 104, 255)',
+                strokeOpacity: transport === 'WALKING' ? 0 : 1,
+                strokeWeight: 5,
                 icons: [{
                   icon: lineSymbol,
                   offset: '0',
                   repeat: '20px'
                 }],
-
-            }));
-
-             if (result.alternative){
-               alternativePaths = result.alternative.map(({ transport, overviewPath }) => new maps.Polyline({
-                path: overviewPath,
-                geodesic: true,
-                strokeColor: '#b4b4b4',
-                strokeOpacity: 1,
-                strokeWeight: 5
               }));
-               alternativePaths.forEach(path => path.setMap(map))
-             }
 
-              paths.forEach(path => path.setMap(map))
+              paths.forEach(path => path.setMap(map));
             });
-          // showDirections(map, maps, directionPositions.startPos, directionPositions.destPos);
         }
         const title = dest ? 'Destination': 'Starting position';
         marker = createUniqueMarker(map, maps, title, location.lat(), location.lng(), positionMarker, true);
