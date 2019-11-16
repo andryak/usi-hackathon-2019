@@ -74,7 +74,11 @@ const getDirections = memo(
     }, (result, status) => {
       if (status === 'OK') {
         resolve({
-          overviewPath: result.routes[0].overview_path,
+          transport,
+          overviewPath: result.routes[0].overview_path.map(point => ({
+            lat: point.lat(),
+            lng: point.lng(),
+          })),
           duration: result.routes[0].legs
             .map(leg => leg.duration.value)
             .reduce((acc, value) => acc + value, 0),
@@ -105,6 +109,10 @@ const shortestPath = async (maps, startCoords, endCoords, time) => {
   const compositeRoutes = [];
   for (let startStation of startStations) {
     for (let endStation of endStations) {
+      if (startStation.id === endStation.id) {
+        continue;
+      }
+
       const fromStartToStartStationDirections = await getDirections(maps, startCoords, startStation.coords, 'WALKING');
       const fromStartStationToEndStationDirections = stationToStationDirections[startStation.id][endStation.id];
       const fromEndStationToEndDirections = await getDirections(maps, endStation.coords, endCoords, 'WALKING');
@@ -138,7 +146,13 @@ const shortestPath = async (maps, startCoords, endCoords, time) => {
 
   const shortestCompositeRoute = compositeRouteByDuration[0];
 
-  // TODO compare shortestCompositeRoute with on-foot-only path.
+  const onFootDirectRoute = await getDirections(maps, startCoords, endCoords, 'WALKING');
+  if (onFootDirectRoute.duration < getCompositeRouteDuration(shortestCompositeRoute)) {
+    return {
+      shortest: [onFootDirectRoute],
+      alternative: undefined,
+    };
+  }
 
   if (mightHaveFewBikesAt(shortestCompositeRoute[1].stations.end, time)) {
     return {
