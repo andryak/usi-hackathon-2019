@@ -126,35 +126,34 @@ def createHeatMap(dir):
     constructStationsDict(dir)
 
 
-def collectRidesByWeekDay():
-    weekDayDict={}
+def collectRidesByWeekDay(startOrEnd):
+    stationDict={}
     for rideId in ridesInformation.keys():
         ride=ridesInformation[rideId]
-        if ride['weekDay'] not in weekDayDict:
-            dayDict={}
-        else:
-            dayDict=weekDayDict[ride['weekDay']]
-            collectRidesByDay(ride,dayDict)
-        weekDayDict[ride['weekDay']]=dayDict
+        if ride[startOrEnd+'Station'] in nameToId:
+            stationId=nameToId[ride[startOrEnd+'Station']]
+            if stationId not in stationDict:
+                weekDayDict={}
+            else:
+                weekDayDict=stationDict[stationId]
+                collectRidesByDay(startOrEnd,ride,weekDayDict)
+            stationDict[stationId]=weekDayDict
+    return stationDict
 
-def collectRidesByDay(ride,dayDict):
-    if ride['startDate'] not in dayDict:
+
+def collectRidesByDay(startOrEnd,ride,dayDict):
+    if ride['weekDay'] not in dayDict:
         hourDict={}
     else:
-        hourDict=dayDict[ride['startDate']]
-    collectRideByHours(ride,hourDict)
-    dayDict[ride['startDate']]=hourDict
+        hourDict=dayDict[ride['weekDay']]
+    collectRideByHours(startOrEnd,ride,hourDict)
+    dayDict[ride['weekDay']]=hourDict
 
-def collectRideByHours(ride,hourDict):
-    if ride['startTime'] not in hourDict:
-        rides=[ride['startStation']]
-        hourDict[ride['startTime']]=rides
+def collectRideByHours(startOrEnd,ride,hourDict):
+    if ride[startOrEnd+'Time'] not in hourDict:
+        hourDict[ride[startOrEnd+'Time']]=1
     else:
-        if ride['startStation'] in nameToId:
-            hourDict[ride['startTime']].append(collectStation(nameToId[ride['startStation']]))
-        else:
-            print(ride['startStation'])
-
+        hourDict[ride[startOrEnd+'Time']]+=1
 
 
 def getHourDict(rideId,dateDict):
@@ -179,9 +178,18 @@ for ride in ridesInformation.copy().keys():
         extractBikeType(ride)
 
 
+def getRidesDataToStationsValue():
+    startDict=collectRidesByWeekDay('start')
+    endDict=collectRidesByWeekDay('end')
+    stationsDict=constructStationsDict(dir)
+    for stationId in stationsDict:
+        usageDict=collectRidesByWeekDay(stationId)
+        station=stationsDict[stationId]
+        station['usage']=startDict[stationId]
+    return stationsDict
 
-
-collectRidesByWeekDay()
+with open(dir+'/rides.json', 'w') as f:
+     json.dump(getRidesDataToStationsValue(), f)
 
 
 # with open('rides.json', 'w') as f:
