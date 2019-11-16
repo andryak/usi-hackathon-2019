@@ -86,24 +86,28 @@ const addSearchListener = (searchBox, map, maps, marker, dest, onPathFound) => {
                 alternativePaths.forEach(path => path.setMap(map))
               }
 
-                        if (result.alternative) {
-                            alternativePaths = result.alternative.map(
-                                ({ transport, overviewPath }) =>
-                                    new maps.Polyline({
-                                        path: overviewPath,
-                                        geodesic: true,
-                                        strokeColor: '#b4b4b4',
-                                        strokeOpacity: 1,
-                                        strokeWeight: 5
-                                    })
-                            );
-                            alternativePaths.forEach(path => path.setMap(map));
-                        }
+                // Draw shortest path first.
+                paths = result.shortest.map(
+                    ({ transport, overviewPath }) =>
+                        new maps.Polyline({
+                            path: overviewPath,
+                            geodesic: true,
+                            strokeColor: '#a328a2',
+                            strokeOpacity: transport === 'WALKING' ? 0 : 1,
+                            strokeWeight: 7,
+                            icons: [
+                                {
+                                    icon: lineSymbol,
+                                    offset: '0',
+                                    repeat: '20px'
+                                }
+                            ]
+                        })
+                );
 
-                        paths.forEach(path => path.setMap(map));
-                        onPathFound(result);
-                    });
-
+                paths.forEach(path => path.setMap(map));
+                    onPathFound(result);
+                });
                 }
                 const title = dest ? 'Destination' : 'Starting position';
                 marker = createUniqueMarker(
