@@ -63,6 +63,8 @@ export const runShortestPathAlg = (map, maps) => {
         ...(transport === 'WALKING' && { icons: [{ icon: lineSymbol, offset: '0', repeat: '10px' }]}),
       }));
       paths.forEach(path => path.setMap(map));
+      onPathFound(result);
+
     });
 };
 
