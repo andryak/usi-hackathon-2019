@@ -55,7 +55,6 @@ const addSearchListener = (searchBox, map, maps, marker, dest) => {
         });
         marker.setMap(map);
         map.panTo(marker.position);
-        // map.setZoom(14);
       }
     })(place);
     searchBox.set('map', map);
