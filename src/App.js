@@ -3,10 +3,8 @@ import Sidebar from './components/sidebar';
 import styles from './App.module.css';
 import classNames from 'classnames';
 import Map from './components/map';
-// import useFetch from './hooks/useFetch';
 import getData from './data/getData';
 import getPosition from './utils/getPosition';
-import showDirections from './utils/showDirections';
 import createUniqueMarker from './utils/createUniqueMarker';
 import addGoogleSearchBox from './utils/addGoogleSearchBox';
 
@@ -33,9 +31,7 @@ const App = () => {
           onApiLoaded={async (map, maps) => {
             const currentPosition = await getPosition();
             addGoogleSearchBox(map, maps, fromRef, toRef);
-            const {originLocation, destinationLocation} = addGoogleSearchBox(map, maps, fromRef, toRef);
             map.setCenter(currentPosition);
-            await showDirections(map, maps, currentPosition, 'massagno');
             setMapHandler({ map, maps });
           }}
         />
