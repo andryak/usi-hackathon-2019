@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Sidebar from './components/sidebar';
 import styles from './App.module.css';
 import classNames from 'classnames';
 import Map from './components/map';
+// import useFetch from './hooks/useFetch';
+import getData from './data/getData';
 
 const App = () => {
   const getCurrentPosition = () => new Promise((resolve, reject) => {
@@ -17,6 +19,15 @@ const App = () => {
     }, reject);
   });
 
+  const [mapHandler, setMapHandler] = useState(null);
+  const luganoStations = getData('stations');
+
+  useEffect(() => {
+    if(mapHandler && luganoStations){
+      console.log(luganoStations)
+    }
+  },[mapHandler,luganoStations]);
+
   const showDirection = (map, maps, origin, destination) => {
     const directionsService = new maps.DirectionsService();
     const directionsDisplay = new maps.DirectionsRenderer();
@@ -29,7 +40,7 @@ const App = () => {
         if (status === 'OK') {
           directionsDisplay.setDirections(res);
         } else {
-          window.alert('Error: ' + status);
+          new Error('Error: ' + status);
         }
       }
     );
@@ -41,9 +52,10 @@ const App = () => {
       <main className={styles.mainPanel}>
         <Map
           onApiLoaded={async (map, maps) => {
+            setMapHandler(map);
             const currentPosition = await getCurrentPosition();
             await showDirection(map, maps, currentPosition, 'massagno');
-            map.setCenter(currentPosition);
+            await map.setCenter(currentPosition);
           }}
         />
       </main>
