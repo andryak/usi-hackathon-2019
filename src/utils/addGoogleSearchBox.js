@@ -5,6 +5,8 @@ const positionMarker = require('../assets/position_marker.svg');
 
 let originMarker = null;
 let destinationMarker = null;
+let paths = null;
+let alternativePaths = null;
 
 const addGoogleSearchBox = (map, maps, fromRef, toRef) => {
   const originSearchBox = new maps.places.SearchBox(fromRef.current);
@@ -46,8 +48,47 @@ const addSearchListener = (searchBox, map, maps, marker, dest) => {
             directionPositions.destPos,
             { weekDay: 'monday', hour: '12' },
           )
-            .then(x => {
-              console.log(x);
+            .then(result => {
+              if(paths) {
+                paths.forEach(path => path.setMap(null));
+              }
+              if (alternativePaths){
+                alternativePaths.forEach((path => path.setMap(null)));
+              }
+
+
+              var lineSymbol = {
+                path: 'M 0,-1 0,1',
+                strokeOpacity: 1,
+                scale: 5,
+            };
+              // Draw shortest path first.
+              paths = result.shortest.map(({ transport, overviewPath }) => new maps.Polyline({
+                path: overviewPath,
+                geodesic: true,
+                strokeColor:'#a328a2',
+                strokeOpacity: transport === 'WALKING' ? 0:1,
+                strokeWeight: 7,
+                icons: [{
+                  icon: lineSymbol,
+                  offset: '0',
+                  repeat: '20px'
+                }],
+
+            }));
+
+             if (result.alternative){
+               alternativePaths = result.alternative.map(({ transport, overviewPath }) => new maps.Polyline({
+                path: overviewPath,
+                geodesic: true,
+                strokeColor: '#b4b4b4',
+                strokeOpacity: 1,
+                strokeWeight: 5
+              }));
+               alternativePaths.forEach(path => path.setMap(map))
+             }
+
+              paths.forEach(path => path.setMap(map))
             });
           // showDirections(map, maps, directionPositions.startPos, directionPositions.destPos);
         }
