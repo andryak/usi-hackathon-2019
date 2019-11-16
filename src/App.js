@@ -6,21 +6,22 @@ import Map from './components/map';
 import getData from './data/getData';
 import getPosition from './utils/getPosition';
 import createUniqueMarker from './utils/createUniqueMarker';
-import addGoogleSearchBox from './utils/addGoogleSearchBox';
+import addGoogleSearchBox, {runShortestPathAlg} from './utils/addGoogleSearchBox';
 import mightHaveFewBikesAt from './utils/mightHaveFewBikesAt';
 import getTime from './utils/getTime';
 const stationLogo = require('./assets/station_marker.svg');
 const hotStationLogo = require('./assets/station_marker_hot.svg');
+const luganoStations = getData('stations');
 
 const App = () => {
   const [mapHandler, setMapHandler] = useState(null);
   const [paths, setPaths] = useState(null);
-  const luganoStations = getData('stations');
+
   const fromRef = useRef(null);
   const toRef = useRef(null);
 
   useEffect(() => {
-    if(mapHandler && mapHandler.map && luganoStations) {
+    if(mapHandler && mapHandler.map) {
       for (const station of luganoStations) {
         const { name, coords } = station;
         const logo =  mightHaveFewBikesAt(station, getTime(new Date()))
@@ -30,12 +31,17 @@ const App = () => {
         createUniqueMarker(mapHandler.map, mapHandler.maps, name, coords.lat, coords.lng, logo)
       }
     }
-  }, [mapHandler, luganoStations]);
-
+  }, [mapHandler]);
 
   return (
     <div className={classNames('App', styles.container)}>
-      <Sidebar className={styles.sidebar} fromRef={fromRef} toRef={toRef} paths={paths}/>
+      <Sidebar
+        className={styles.sidebar}
+        fromRef={fromRef}
+        toRef={toRef}
+        paths={paths}
+        mapHandler={mapHandler}
+      />
       <main className={styles.mainPanel}>
         <Map
           onApiLoaded={async (map, maps) => {
