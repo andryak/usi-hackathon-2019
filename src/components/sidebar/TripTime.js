@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import {DirectionsBikeOutlined, DirectionsWalkOutlined} from '@material-ui/icons';
 import styles from './Sidebar.module.css';
 
@@ -20,14 +21,17 @@ const fancyTimeFormat = time => {
 
 const TripTime = ({path}) => {
     const {transport, duration} = path;
-    console.log('xxx path', path);
     return (
-        <div className={styles.tripTimeContainer}>
-            {transport === 'WALKING'
-                ? <DirectionsWalkOutlined fontSize={'large'} className={styles.tripTimeIcon}/>
-                : <DirectionsBikeOutlined fontSize={'large'} className={styles.tripTimeIcon}/>
-            }
-            <span className={styles.tripDuration}>{fancyTimeFormat(duration)}</span>
+        <div className={styles.tripContainer}>
+            <div className={classNames(styles.tripTimeContainer, transport === 'WALKING'?styles.tripWalking : styles.tripBike)}>
+                {transport === 'WALKING' ? <div className={styles.dotTop}/>:null}
+                {transport === 'WALKING'
+                    ? <DirectionsWalkOutlined fontSize={'large'} className={styles.tripTimeIcon}/>
+                    : <DirectionsBikeOutlined fontSize={'large'} className={styles.tripTimeIcon}/>
+                }
+                <div className={styles.tripDuration}>{fancyTimeFormat(duration)}</div>
+                {transport === 'WALKING' ? <div className={styles.dotBottom}/>: null}
+            </div>
         </div>
     )
 };

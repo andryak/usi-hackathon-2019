@@ -55,7 +55,7 @@ const Sidebar = ({ className, fromRef, toRef, paths, mapHandler }) => {
       </header>
 
       <div className={styles.content}>
-          <div>
+          <div className={styles.overallTripContainer}>
               {shortestPath && shortestPath.map(path => <TripTime path={path}/>)}
           </div>
       </div>
