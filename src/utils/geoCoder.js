@@ -2,15 +2,19 @@ import directionPositions from './directionPositions';
 import getPosition from './getPosition';
 import createUniqueMarker from './createUniqueMarker';
 const positionMarker = require('../assets/position_marker.svg');
+const flagIcon = require('../assets/position_marker.svg');
 
 export default async (mapHandler, inputRef, kind) => {
   const geocoder = new mapHandler.maps.Geocoder();
   const currentPosition = await getPosition();
 
+  let markerIcon;
   if (kind === 'start') {
     directionPositions.setStart(currentPosition)
+    markerIcon = positionMarker;
   } else {
     directionPositions.setDest(currentPosition)
+    markerIcon = flagIcon;
   }
 
   geocoder.geocode({'location': currentPosition}, (results, status) => {
@@ -24,13 +28,14 @@ export default async (mapHandler, inputRef, kind) => {
           '',
           currentPosition.lat,
           currentPosition.lng,
-          positionMarker,
+          markerIcon,
           true,
         );
         marker.setMap(mapHandler.map);
+        marker.setZIndex(9999);
         if(kind === 'from') {
           directionPositions.setStartMarker(marker);
-        }else{
+        } else {
           directionPositions.setDestMarker(marker);
         }
         mapHandler.map.panTo(currentPosition);

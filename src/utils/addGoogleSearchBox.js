@@ -3,6 +3,7 @@ import shortestPath from './shortestPath';
 import createUniqueMarker from './createUniqueMarker';
 import getTime from './getTime';
 const positionMarker = require('../assets/position_marker.svg');
+const flagIcon = require('../assets/position_marker.svg');
 
 let { startMarker, destMarker } = directionPositions.getMarkers();
 let paths = null;
@@ -84,7 +85,15 @@ const addGoogleSearchBox = (map, maps, fromRef, toRef) => {
 };
 
 const addSearchListener = (searchBox, map, maps, kind) => {
-  let marker = kind === 'from' ? startMarker : destMarker;
+  let marker;
+  let markerIcon;
+  if(kind === 'from') {
+    marker=startMarker;
+    markerIcon = positionMarker;
+  } else {
+    marker= destMarker;
+    markerIcon = flagIcon;
+  }
 
   let location = null;
   maps.event.addListener(searchBox, 'places_changed', () => {
@@ -115,11 +124,12 @@ const addSearchListener = (searchBox, map, maps, kind) => {
         '',
         location.lat(),
         location.lng(),
-        positionMarker,
+        markerIcon,
         true,
         true
       );
       marker.setMap(map);
+      marker.setZIndex(9999);
       if(kind === 'from') {
         directionPositions.setStartMarker(marker);
       }else{
