@@ -21,8 +21,8 @@ code {
 }
 
 .gm-style-iw, .gm-style .gm-style-iw-c {
-  top: 14px !important;
-  background-color: #a73492;
+  top: 10px !important;
+  background-color: #a63392;
   box-shadow: none;
   border: none;
   border-radius: 10px;
@@ -32,12 +32,12 @@ code {
 }
 #iw-container .iw-title {
   font-family: 'Open Sans Condensed', sans-serif;
-  background-color: #a73492;
-  color: #a73492;
+  background-color: #a63392;
+  color: #a63392;
   margin: 0;
 }
 .gm-style .gm-style-iw-d::-webkit-scrollbar-track, .gm-style .gm-style-iw-d::-webkit-scrollbar-track-piece {
-  background: #a73492;
+  background: #a63392;
 }
 #iw-container .iw-content {
   font-size: 13px;
@@ -55,7 +55,7 @@ code {
 }
 .iw-bottom-gradient {
   position: absolute;
-  background: #a73492;
+  background: #a63392;
 }
 .gm-style .gm-style-iw-t::after{ display: none }
 

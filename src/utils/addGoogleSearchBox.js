@@ -28,6 +28,8 @@ const addSearchListener = (searchBox, map, maps, marker, dest) => {
       }
       location = place.geometry.location;
       if (!searchBox.getBounds().contains(location)) {
+        const formName = dest? 'to-place': 'from-place';
+        document.getElementById(formName).value='';
         alert('Please chose a location between Lugano and surroundings.')
       } else {
         if (dest) {

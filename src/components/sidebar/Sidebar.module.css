@@ -1,12 +1,24 @@
 .container {}
 
 .header {
-    background-color: rgb(53, 109, 242);
+    background-color: #a63392;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 2rem;
 }
+
+@media only screen and (max-width: 600px) {
+    .header {
+        background-color: #a63392;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 2rem;
+        height: 70%;
+    }
+}
+
 
 .input {
     border: 0;
