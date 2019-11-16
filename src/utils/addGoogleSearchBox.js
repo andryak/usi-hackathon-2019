@@ -1,3 +1,8 @@
+import showDirections from './showDirections';
+
+let originMarker = null;
+let destinationMarker = null;
+
 const addGoogleSearchBox = (map, maps, fromRef, toRef) => {
   const originSearchBox = new maps.places.SearchBox(fromRef.current);
   const destinationSearchBox = new maps.places.SearchBox(toRef.current);
@@ -5,30 +10,38 @@ const addGoogleSearchBox = (map, maps, fromRef, toRef) => {
     new maps.LatLng(45.938987, 8.894772),
     new maps.LatLng(46.030923, 8.991668)
   );
+  let originLocation = addSearchListener(originSearchBox, map, maps, originMarker);
+  let destinationLocation = addSearchListener(destinationSearchBox, map, maps, destinationMarker);
   originSearchBox.setBounds(searchBounds);
   destinationSearchBox.setBounds(searchBounds);
-  maps.event.addListener(originSearchBox, 'places_changed', function() {
-    originSearchBox.set('map', null);
+  return {originLocation, destinationLocation}
+};
 
-    let places = originSearchBox.getPlaces();
+const addSearchListener = (searchBox, map, maps, marker) => {
+  let location = null;
+  maps.event.addListener(searchBox, 'places_changed', () => {
+    searchBox.set('map', null);
 
-    let i, place;
-    for (i = 0; i < 1; i++) {
-      place = places[i];
-      (place => {
-        let marker = new maps.Marker({
-          position: place.geometry.location
-        });
-        marker.bindTo('map', originSearchBox, 'map');
-        maps.event.addListener(marker, 'map_changed', () => {
-          // FIXME
-        });
+    let place = searchBox.getPlaces()[0];
+    (place => {
+      if (marker) {
+        marker.setMap(null);
+      }
+      location = place.geometry.location;
+      marker = new maps.Marker({
+        position: location
+      });
+      if (map.getBounds().contains(marker.getPosition())) {
+        marker.setMap(map);
         map.setCenter(marker.position);
-      })(place);
-    }
-    originSearchBox.set('map', map);
-    map.setZoom(16);
+        map.setZoom(16);
+      } else {
+        marker.setMap(null);
+      }
+    })(place);
+    searchBox.set('map', map);
   });
+  return location;
 };
 
 export default addGoogleSearchBox;

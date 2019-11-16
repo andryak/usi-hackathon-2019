@@ -33,10 +33,10 @@ const App = () => {
           onApiLoaded={async (map, maps) => {
             const currentPosition = await getPosition();
             addGoogleSearchBox(map, maps, fromRef, toRef);
+            const {originLocation, destinationLocation} = addGoogleSearchBox(map, maps, fromRef, toRef);
             map.setCenter(currentPosition);
-            setMapHandler({ map, maps });
             await showDirections(map, maps, currentPosition, 'massagno');
-            await map.setCenter(currentPosition);
+            setMapHandler({ map, maps });
           }}
         />
       </main>
