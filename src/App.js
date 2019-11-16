@@ -7,6 +7,7 @@ import getData from './data/getData';
 import getPosition from './utils/getPosition';
 import createUniqueMarker from './utils/createUniqueMarker';
 import addGoogleSearchBox from './utils/addGoogleSearchBox';
+const stationLogo = require('./assets/station_marker.svg');
 
 const App = () => {
   const [mapHandler, setMapHandler] = useState(null);
@@ -17,8 +18,8 @@ const App = () => {
   useEffect(() => {
     if(mapHandler && mapHandler.map && luganoStations) {
       for (const station of Object.values(luganoStations)) {
-        const {name: title, latitude, longitude} = station;
-        createUniqueMarker(mapHandler.map, mapHandler.maps, title, latitude, longitude);
+        const { name: title, latitude, longitude } = station;
+        createUniqueMarker(mapHandler.map, mapHandler.maps, title, latitude, longitude, stationLogo);
       }
     }
   },[mapHandler, luganoStations]);

@@ -11,3 +11,63 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.infoWindow {
+  background-color: #a73492;
+  padding: 0px;
+  color: white;
+  margin: 0px;
+  font-weight: bold;
+}
+
+.gm-style-iw, .gm-style .gm-style-iw-c {
+  top: 14px !important;
+  background-color: #a73492;
+  box-shadow: none;
+  border: none;
+  border-radius: 10px;
+}
+#iw-container {
+  margin-bottom: 0px;
+}
+#iw-container .iw-title {
+  font-family: 'Open Sans Condensed', sans-serif;
+  background-color: #a73492;
+  color: #a73492;
+  margin: 0;
+}
+.gm-style .gm-style-iw-d::-webkit-scrollbar-track, .gm-style .gm-style-iw-d::-webkit-scrollbar-track-piece {
+  background: #a73492;
+}
+#iw-container .iw-content {
+  font-size: 13px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.iw-content img {
+  float: right;
+  margin: 0 5px 5px 10px;
+}
+.iw-subTitle {
+  font-size: 16px;
+  font-weight: 700;
+  padding: 5px 0;
+}
+.iw-bottom-gradient {
+  position: absolute;
+  background: #a73492;
+}
+.gm-style .gm-style-iw-t::after{ display: none }
+
+.gm-style-iw-t button {
+  background: url('./assets/close.png') !important;
+  background-size: cover !important;
+  width: 10px !important;
+  right: 5px !important;
+  height: 10px !important;
+  top: 5px !important;
+}
+
+.gm-style-iw-t button  img {
+  display: none !important;
+}
