@@ -38,7 +38,7 @@ const Sidebar = ({ className, fromRef, toRef, paths, mapHandler }) => {
           <div className={classNames(styles.inputContainer, styles.secondInput)}>
             <div className={styles.iconContainer}>
               <i
-                className={classNames('far fa-flag', styles.icon)}
+                className={classNames('fas fa-flag', styles.icon)}
                 onClick={() => geoCoder(mapHandler,toRef, 'dest')}
               />
             </div>
