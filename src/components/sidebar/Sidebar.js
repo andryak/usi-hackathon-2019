@@ -6,6 +6,7 @@ import TripTime from './TripTime';
 import {FlagOutlined, RoomOutlined} from '@material-ui/icons';
 import {runShortestPathAlg} from '../../utils/addGoogleSearchBox';
 import geoCoder from '../../utils/geoCoder';
+import hotStationLogo from '../../assets/station_marker_hot.svg';
 
 
 const Sidebar = ({ className, fromRef, toRef, mapHandler }) => {
@@ -67,7 +68,14 @@ const Sidebar = ({ className, fromRef, toRef, mapHandler }) => {
               {shortestPath && shortestPath.map(path => <TripTime path={path}/>)}
           </div>
       </div>
-
+    <footer className={styles.footer}>
+        <div>
+            <img src={hotStationLogo} width={30} />
+        </div>
+        <div className={styles.legend}>
+            <span > Stations with this symbol are usually on high demand at this time. Travel there to help your fellow bikers and earn some rewards.</span>
+        </div>
+    </footer>
     </nav>
   );
 };
