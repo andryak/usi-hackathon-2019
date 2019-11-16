@@ -17,7 +17,7 @@
 @media only screen and (max-width: 1050px) {
     .sidebar {
         width: 100vw;
-        height: 25vh;
+        height: 30vh;
         box-shadow: 2px 0 10px -2px #eee;
     }
 
@@ -27,9 +27,9 @@
     }
 
     .mainPanel {
-        margin-top: 25vh;
+        margin-top: 30vh;
         margin-left: 0;
-        height: 75vh;
+        height: 70vh;
         background-color: white;
     }
 }
