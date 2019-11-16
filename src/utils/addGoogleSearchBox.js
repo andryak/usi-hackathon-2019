@@ -64,7 +64,8 @@ const addSearchListener = (searchBox, map, maps, marker, dest, onPathFound) => {
               }
 
               var lineSymbol = {
-                  path: 'M 0,-1 1,0 0,1 -1,0 0,-1',
+                  path: 'M 0,-0.25 0.25,0 0,0.25 -0.25,0 0,-0.25',
+                  strokeOpacity: 1,
               };
 
               // Draw alternative path, so that it might later be overridden by the shortest path.
@@ -72,9 +73,10 @@ const addSearchListener = (searchBox, map, maps, marker, dest, onPathFound) => {
                 alternativePaths = result.alternative.map(({ transport, overviewPath }) => new maps.Polyline({
                   path: overviewPath,
                   geodesic: true,
+                  strokeOpacity: transport === 'WALKING' ? 0 : 1,
                   strokeColor: '#67b485',
-                  strokeWeight: 2,
-                  ...(transport === 'WALKING' && { icons: [{ icon: lineSymbol, offset: '7px', repeat: '7px' }]}),
+                  strokeWeight: 4,
+                  ...(transport === 'WALKING' && { icons: [{ icon: lineSymbol, offset: '10px', repeat: '10px' }]}),
                 }));
                 alternativePaths.forEach(path => path.setMap(map))
               }
@@ -83,9 +85,10 @@ const addSearchListener = (searchBox, map, maps, marker, dest, onPathFound) => {
               paths = result.shortest.map(({ transport, overviewPath }) => new maps.Polyline({
                 path: overviewPath,
                 geodesic: true,
+                strokeOpacity: transport === 'WALKING' ? 0 : 1,
                 strokeColor: 'rgb(11, 104, 255)',
-                strokeWeight: 2,
-                ...(transport === 'WALKING' && { icons: [{ icon: lineSymbol, offset: '0', repeat: '7px' }]}),
+                strokeWeight: 4,
+                ...(transport === 'WALKING' && { icons: [{ icon: lineSymbol, offset: '0', repeat: '10px' }]}),
               }));
               paths.forEach(path => path.setMap(map));
             });
