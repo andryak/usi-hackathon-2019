@@ -14,6 +14,7 @@ const hotStationLogo = require('./assets/station_marker_hot.svg');
 
 const App = () => {
   const [mapHandler, setMapHandler] = useState(null);
+  const [paths, setPaths] = useState(null);
   const luganoStations = getData('stations');
   const fromRef = useRef(null);
   const toRef = useRef(null);
@@ -31,14 +32,15 @@ const App = () => {
     }
   }, [mapHandler, luganoStations]);
 
+
   return (
     <div className={classNames('App', styles.container)}>
-      <Sidebar className={styles.sidebar} fromRef={fromRef} toRef={toRef} />
+      <Sidebar className={styles.sidebar} fromRef={fromRef} toRef={toRef} paths={paths}/>
       <main className={styles.mainPanel}>
         <Map
           onApiLoaded={async (map, maps) => {
             const currentPosition = await getPosition();
-            addGoogleSearchBox(map, maps, fromRef, toRef);
+            addGoogleSearchBox(map, maps, fromRef, toRef, setPaths);
             map.panTo(currentPosition);
             setMapHandler({ map, maps });
           }}

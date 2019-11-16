@@ -10,6 +10,7 @@
     flex-direction: column;
     justify-content: center;
     padding: 2rem;
+    border-bottom: 5px solid #943480;
 }
 
 @media only screen and (max-width: 600px) {
@@ -27,14 +28,26 @@
     }
 }
 
+.inputContainer {
+    display: flex;
+    flex-direction: row;
+    flex:1;
+}
+
+.icon{
+    color: white;
+    margin-right: 0.5rem;
+}
+
 .input {
+    flex:1;
     border: 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.5);
     padding-bottom: 0.5rem;
     background-color: transparent;
     outline: none;
     color: white;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 .secondInput {
