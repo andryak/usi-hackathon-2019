@@ -15,7 +15,7 @@ const Map = ({ defaultCenter, defaultZoom, onApiLoaded, publibikeStations }) => 
     <GoogleMapReact
       yesIWantToUseGoogleMapApiInternals
       onGoogleApiLoaded={({ map, maps }) => onApiLoaded(map, maps)}
-      bootstrapURLKeys={{ key: GOOGLE_KEY }}
+      bootstrapURLKeys={{ key: GOOGLE_KEY, libraries: ['places'] }}
       defaultCenter={defaultCenter}
       defaultZoom={defaultZoom}
     />
