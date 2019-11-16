@@ -32,7 +32,7 @@ const App = () => {
           onApiLoaded={async (map, maps) => {
             const currentPosition = await getPosition();
             addGoogleSearchBox(map, maps, fromRef, toRef);
-            map.setCenter(currentPosition);
+            map.panTo(currentPosition);
             setMapHandler({ map, maps });
           }}
         />
