@@ -1,52 +1,14 @@
 import geodistance from './geodistance';
 import memo from './memo';
 
-const stations = [
-  {
-    id: 0,
-    name: 'USI',
-    coords: {
-      lat: 46.01008,
-      lng: 8.96004,
-    },
-    availability: {
-      monday: {
-        '00:00': 4,
-        '01:00': 3,
-        '02:00': 2,
-        '03:00': 5,
-        '04:00': 2,
-        '05:00': 1,
-        '06:00': 3,
-        '07:00': 0,
-      },
-      tuesday: {},
-      wednesday: {},
-      thursday: {},
-      friday: {},
-      saturday: {},
-      sunday: {},
-    },
-  },
-];
+// TODO get from file.
+const stations = [];
 
-const stationToStationRoutes = {
-  0: {
-    1: 'PATH',
-    2: 'PATH',
-  },
-  1: {
-    0: 'PATH',
-    2: 'PATH',
-  },
-  2: {
-    0: 'PATH',
-    1: 'PATH',
-  },
-};
+// TODO get from file.
+const stationToStationDirections = {};
 
 const mightHaveFewBikesAt = (station, time) => (
-  publibikeStationsAvailability[station.id][time.weekDay][time.hour] < 5
+  station.availability[time.weekDay][time.hour] < 5
 );
 
 const getDirections = memo(
@@ -70,7 +32,7 @@ const shortestPath = (startCoords, endCoords, time) => {
   startStations.forEach(startStation => {
     endStations.forEach(endStation => {
       const fromStartToStartStationDirections = getDirections(startCoords, startStation.coords, 'foot');
-      const fromStartStationToEndStationDirections = getDirections(startStation.coords, endStation.coords, 'bike');
+      const fromStartStationToEndStationDirections = stationToStationDirections[startStation.id][endStation.id];
       const fromEndStationToEndDirections = getDirections(endStation.coords, endCoords, 'foot');
       compositeRoutes.push([
         {
