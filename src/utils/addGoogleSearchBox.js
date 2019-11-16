@@ -1,6 +1,7 @@
-import showDirections from './showDirections';
 import directionPositions from './directionPositions';
 import shortestPath from './shortestPath';
+import createUniqueMarker from './createUniqueMarker';
+const positionMarker = require('../assets/position_marker.svg');
 
 let originMarker = null;
 let destinationMarker = null;
@@ -29,7 +30,7 @@ const addSearchListener = (searchBox, map, maps, marker, dest) => {
       }
       location = place.geometry.location;
       if (!searchBox.getBounds().contains(location)) {
-        const formName = dest? 'to-place': 'from-place';
+        const formName = dest ? 'to-place': 'from-place';
         document.getElementById(formName).value='';
         alert('Please chose a location between Lugano and surroundings.')
       } else {
@@ -50,9 +51,8 @@ const addSearchListener = (searchBox, map, maps, marker, dest) => {
             });
           // showDirections(map, maps, directionPositions.startPos, directionPositions.destPos);
         }
-        marker = new maps.Marker({
-          position: location
-        });
+        const title = dest ? 'Destination': 'Starting position';
+        marker = createUniqueMarker(map, maps, title, location.lat(), location.lng(), positionMarker, true);
         marker.setMap(map);
         map.setCenter(marker.position);
         map.setZoom(16);

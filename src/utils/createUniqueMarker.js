@@ -6,7 +6,7 @@ const makeInfoWindow = title => (
   </p>`
 );
 
-export default (map, maps, title, lat, lng, icon)=> {
+export default (map, maps, title, lat, lng, icon, hideInfoWindow)=> {
   const marker = new maps.Marker({
     position: {
       lat: Number(lat),
@@ -16,15 +16,18 @@ export default (map, maps, title, lat, lng, icon)=> {
     title,
     ...(icon && {icon})
   });
-  const infoWindow = new maps.InfoWindow({
-    content: makeInfoWindow(title)
-  });
 
-  marker.addListener('click', () => {
-    if (selectedInfoWindow) {
-      selectedInfoWindow.close();
-    }
-    selectedInfoWindow = infoWindow;
-    infoWindow.open(map, marker);
-  });
+  if(!hideInfoWindow) {
+    const infoWindow = new maps.InfoWindow({
+      content: makeInfoWindow(title)
+    });
+    marker.addListener('click', () => {
+      if (selectedInfoWindow) {
+        selectedInfoWindow.close();
+      }
+      selectedInfoWindow = infoWindow;
+      infoWindow.open(map, marker);
+    });
+  }
+  return marker;
 }
