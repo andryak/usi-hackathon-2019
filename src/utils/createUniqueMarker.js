@@ -1,19 +1,28 @@
+import React from 'react';
+
 let selectedInfoWindow = null;
 
-export default (map, maps, title, lat, lng)=> {
+const makeInfoWindow = title => (
+  `<p class='infoWindow'>
+    ${title}
+  </p>`
+);
+
+export default (map, maps, title, lat, lng, icon)=> {
   const marker = new maps.Marker({
     position: {
       lat: Number(lat),
       lng: Number(lng)
     },
     map: map,
-    title
+    title,
+    ...(icon && {icon})
+  });
+  const infoWindow = new maps.InfoWindow({
+    content: makeInfoWindow(title)
   });
 
   marker.addListener('click', () => {
-    const infoWindow = new maps.InfoWindow({
-      content: title
-    });
     if (selectedInfoWindow) {
       selectedInfoWindow.close();
     }

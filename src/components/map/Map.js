@@ -36,7 +36,7 @@ Map.propTypes = {
 
 Map.defaultProps = {
   defaultCenter: LUGANO_COORDS,
-  defaultZoom: 14,
+  defaultZoom: 16,
 };
 
 export default Map;

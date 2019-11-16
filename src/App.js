@@ -3,11 +3,11 @@ import Sidebar from './components/sidebar';
 import styles from './App.module.css';
 import classNames from 'classnames';
 import Map from './components/map';
-// import useFetch from './hooks/useFetch';
 import getData from './data/getData';
 import getPosition from './utils/getPosition';
 import showDirections from './utils/showDirections';
 import createUniqueMarker from './utils/createUniqueMarker';
+const stationLogo = require('./assets/station_marker.svg');
 
 const App = () => {
   const [mapHandler, setMapHandler] = useState(null);
@@ -16,8 +16,8 @@ const App = () => {
   useEffect(() => {
     if(mapHandler && mapHandler.map && luganoStations) {
       for (const station of Object.values(luganoStations)) {
-        const {name: title, latitude, longitude} = station;
-        createUniqueMarker(mapHandler.map, mapHandler.maps, title, latitude, longitude);
+        const { name: title, latitude, longitude } = station;
+        createUniqueMarker(mapHandler.map, mapHandler.maps, title, latitude, longitude, stationLogo);
       }
     }
   },[mapHandler, luganoStations]);
