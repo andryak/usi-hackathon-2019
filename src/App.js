@@ -17,12 +17,12 @@ const App = () => {
 
   useEffect(() => {
     if(mapHandler && mapHandler.map && luganoStations) {
-      for (const station of Object.values(luganoStations)) {
-        const { name: title, latitude, longitude } = station;
-        createUniqueMarker(mapHandler.map, mapHandler.maps, title, latitude, longitude, stationLogo);
+      for (const station of luganoStations) {
+        const { name, coords } = station;
+        createUniqueMarker(mapHandler.map, mapHandler.maps, name, coords.lat, coords.lng, stationLogo);
       }
     }
-  },[mapHandler, luganoStations]);
+  }, [mapHandler, luganoStations]);
 
   return (
     <div className={classNames('App', styles.container)}>
