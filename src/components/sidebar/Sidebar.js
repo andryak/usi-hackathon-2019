@@ -3,7 +3,7 @@ import styles from './Sidebar.module.css';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import TripTime from './TripTime';
-import {FlagOutlined, RoomOutlined} from '@material-ui/icons';
+import {MyLocation} from '@material-ui/icons';
 import {runShortestPathAlg} from '../../utils/addGoogleSearchBox';
 import geoCoder from '../../utils/geoCoder';
 
@@ -25,30 +25,30 @@ const Sidebar = ({ className, fromRef, toRef, mapHandler }) => {
         <div>
           <div className={styles.inputContainer}>
             <div className={styles.iconContainer}>
-              <i
-                className={classNames('fas fa-map-marker-alt', styles.icon)}
-                onClick={()=>geoCoder(mapHandler,fromRef,'start')}
-              />
+              <i className={classNames('fas fa-map-marker-alt', styles.icon)}/>
             </div>
             <input
               ref={fromRef}
               id='from-place'
               placeholder='Choose starting point...'
               className={styles.input}
+              style={{paddingRight: '2rem'}}
+            />
+            <MyLocation
+              className={styles.locationIcon}
+              style={{fontSize: 18}}
+              onClick={()=>geoCoder(mapHandler,fromRef,'start')}
             />
           </div>
           <div className={classNames(styles.inputContainer, styles.secondInput)}>
             <div className={styles.iconContainer}>
-              <i
-                className={classNames('far fa-flag', styles.icon)}
-                onClick={() => geoCoder(mapHandler,toRef, 'dest')}
-              />
+              <i className={classNames('far fa-flag', styles.icon)}/>
             </div>
             <input
               ref={toRef}
               id='to-place'
               placeholder='Choose destination...'
-              className={styles.input}
+              className={classNames(styles.input, styles.destInput)}
             />
           </div>
         </div>

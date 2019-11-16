@@ -106,8 +106,20 @@
     font-size: 0.9rem;
 }
 
+.locationIcon {
+    margin-right: 0;
+    color: white;
+    cursor: pointer;
+    margin-left: -1.5rem;
+}
+
 .secondInput {
     margin-top: 1.5rem;
+}
+
+.destInput {
+    padding-right: 2rem;
+    margin-right: -0.25rem;
 }
 
 .input::placeholder {
