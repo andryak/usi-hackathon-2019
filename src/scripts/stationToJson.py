@@ -8,7 +8,7 @@ import sys
 def constructStationsDict(dir):
     keysToSkip=['id','networkId','networkName']
     stationsDict={}
-    with open(dir+'stations.csv', newline='') as csvfile:
+    with open(dir+'/stations/stations.csv', newline='') as csvfile:
         stations = csv.DictReader(csvfile)
         for station in stations:
             stationId = station['id']
@@ -23,7 +23,17 @@ def constructStationsDict(dir):
                         innerDict[key]=station[key]
     return stationsDict
 
+def mapStationNameToId(dir):
+    stationsDict=constructStationsDict(dir)
+    nameIdMap={}
+    for row in stationsDict:
+        name=stationsDict[row]['name']
+        nameIdMap[name]=row
+    return nameIdMap
 
 dir=sys.argv[1]
-with open(dir+'stations.json', 'w') as f:
-    json.dump(constructStationsDict(dir), f)
+mapStationNameToId(dir)
+
+def generateJson(dir):
+    with open(dir+'/stations/stations.json', 'w') as f:
+        json.dump(constructStationsDict(dir), f)
