@@ -45,7 +45,7 @@ export const runShortestPathAlg = (map, maps, onPathFound) => {
         alternativePaths = result.alternative.map(({ transport, overviewPath }) => new maps.Polyline({
           path: overviewPath,
           geodesic: true,
-          strokeOpacity: transport === 'WALKING' ? 0 : 1,
+          strokeOpacity: transport === 'WALKING' ? 0 : 0.5,
           strokeColor: 'rgb(255,96,0)',
           strokeWeight: 4,
           ...(transport === 'WALKING' && { icons: [{ icon: lineSymbol, offset: '10px', repeat: '10px' }]}),
