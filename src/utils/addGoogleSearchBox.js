@@ -8,7 +8,7 @@ let { startMarker, destMarker } = directionPositions.getMarkers();
 let paths = null;
 let alternativePaths = null;
 
-export const runShortestPathAlg = (map, maps) => {
+export const runShortestPathAlg = (map, maps, onPathFound) => {
   const {startPos, destPos} = directionPositions.getPositions();
   if (!startPos || !destPos) {
     // FIXME deduce from inputs.
@@ -63,6 +63,8 @@ export const runShortestPathAlg = (map, maps) => {
         ...(transport === 'WALKING' && { icons: [{ icon: lineSymbol, offset: '0', repeat: '10px' }]}),
       }));
       paths.forEach(path => path.setMap(map));
+      onPathFound(result);
+
     });
 };
 
