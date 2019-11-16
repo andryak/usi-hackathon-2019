@@ -64,9 +64,8 @@ const addSearchListener = (searchBox, map, maps, marker, dest, onPathFound) => {
               }
 
               var lineSymbol = {
-                  path: 'M 0,-1 0,0',
+                  path: 'M 0,-0.25 0.25,0 0,0.25 -0.25,0 0,-0.25',
                   strokeOpacity: 1,
-                  scale: 5,
               };
 
               // Draw alternative path, so that it might later be overridden by the shortest path.
@@ -74,57 +73,33 @@ const addSearchListener = (searchBox, map, maps, marker, dest, onPathFound) => {
                 alternativePaths = result.alternative.map(({ transport, overviewPath }) => new maps.Polyline({
                   path: overviewPath,
                   geodesic: true,
-                  strokeColor: '#67b485',
                   strokeOpacity: transport === 'WALKING' ? 0 : 1,
-                  strokeWeight: 5,
-                  icons: [{
-                    icon: lineSymbol,
-                    offset: '20px',
-                    repeat: '20px'
-                  }],
+                  strokeColor: '#67b485',
+                  strokeWeight: 4,
+                  ...(transport === 'WALKING' && { icons: [{ icon: lineSymbol, offset: '10px', repeat: '10px' }]}),
                 }));
                 alternativePaths.forEach(path => path.setMap(map))
               }
 
-                // Draw shortest path first.
-                paths = result.shortest.map(
-                    ({ transport, overviewPath }) =>
-                        new maps.Polyline({
-                            path: overviewPath,
-                            geodesic: true,
-                            strokeColor: '#a328a2',
-                            strokeOpacity: transport === 'WALKING' ? 0 : 1,
-                            strokeWeight: 7,
-                            icons: [
-                                {
-                                    icon: lineSymbol,
-                                    offset: '0',
-                                    repeat: '20px'
-                                }
-                            ]
-                        })
-                );
-
-                paths.forEach(path => path.setMap(map));
-                    onPathFound(result);
-                });
-                }
-                const title = dest ? 'Destination' : 'Starting position';
-                marker = createUniqueMarker(
-                    map,
-                    maps,
-                    title,
-                    location.lat(),
-                    location.lng(),
-                    positionMarker,
-                    true
-                );
-                marker.setMap(map);
-                map.panTo(marker.position);
-            }
-        })(place);
-        searchBox.set('map', map);
-    });
+              // Draw shortest path
+              paths = result.shortest.map(({ transport, overviewPath }) => new maps.Polyline({
+                path: overviewPath,
+                geodesic: true,
+                strokeOpacity: transport === 'WALKING' ? 0 : 1,
+                strokeColor: 'rgb(11, 104, 255)',
+                strokeWeight: 4,
+                ...(transport === 'WALKING' && { icons: [{ icon: lineSymbol, offset: '0', repeat: '10px' }]}),
+              }));
+              paths.forEach(path => path.setMap(map));
+            });
+        }
+        const title = dest ? 'Destination': 'Starting position';
+        marker = createUniqueMarker(map, maps, title, location.lat(), location.lng(), positionMarker, true);
+        marker.setMap(map);
+      }
+    })(place);
+    searchBox.set('map', map);
+  });
 };
 
 export default addGoogleSearchBox;
