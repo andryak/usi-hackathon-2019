@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import TripTime from './TripTime';
 import {FlagOutlined, RoomOutlined} from '@material-ui/icons';
 import {runShortestPathAlg} from '../../utils/addGoogleSearchBox';
+import geoCoder from '../../utils/geoCoder';
 
 
 const Sidebar = ({ className, fromRef, toRef, paths, mapHandler }) => {
@@ -22,7 +23,7 @@ const Sidebar = ({ className, fromRef, toRef, paths, mapHandler }) => {
         <div>
           <div className={styles.inputContainer}>
             <div className={styles.iconContainer}>
-              <RoomOutlined className={styles.icon} />
+              <RoomOutlined onClick={()=>geoCoder(mapHandler,fromRef,'start')} className={styles.icon} />
             </div>
             <input
               ref={fromRef}
@@ -33,7 +34,7 @@ const Sidebar = ({ className, fromRef, toRef, paths, mapHandler }) => {
           </div>
           <div className={classNames(styles.inputContainer, styles.secondInput)}>
             <div className={styles.iconContainer}>
-              <FlagOutlined className={styles.icon} />
+              <FlagOutlined onClick={()=>geoCoder(mapHandler,toRef, 'dest')} className={styles.icon} />
             </div>
             <input
               ref={toRef}
@@ -61,12 +62,10 @@ const Sidebar = ({ className, fromRef, toRef, paths, mapHandler }) => {
 
 Sidebar.propTypes = {
   className: PropTypes.string,
-
   fromRef: PropTypes.any,
-
   toRef: PropTypes.any,
-
   paths: PropTypes.any,
+  mapHandler: PropTypes.any,
 };
 
 export default Sidebar;
