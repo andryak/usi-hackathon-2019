@@ -2,22 +2,7 @@ import stations from '../data/stations';
 import stationToStationDirections from '../data/stationToStationDirections';
 import geodistance from './geodistance';
 import memo from './memo';
-
-const mightHaveFewBikesAt = (station, time) => {
-  const loans =
-    station.loans[time.weekDay] &&
-    station.loans[time.weekDay][time.hour]
-      ? station.loans[time.weekDay][time.hour]
-      : 0;
-
-  const returns =
-    station.returns[time.weekDay] &&
-    station.returns[time.weekDay][time.hour]
-      ? station.returns[time.weekDay][time.hour]
-      : 0;
-
-  return returns - loans < 0;
-};
+import mightHaveFewBikesAt from './mightHaveFewBikesAt';
 
 const getDirections = memo(
   (maps, startCoords, endCoords, transport) => new Promise((resolve, reject) => {
