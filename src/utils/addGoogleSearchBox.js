@@ -4,27 +4,27 @@ import createUniqueMarker from './createUniqueMarker';
 import getTime from './getTime';
 const positionMarker = require('../assets/position_marker.svg');
 
-let originMarker = null;
-let destinationMarker = null;
+let { startMarker, destMarker } = directionPositions.getMarkers();
 let paths = null;
 let alternativePaths = null;
 
 export const runShortestPathAlg = (map, maps) => {
-  if (!directionPositions.startPos || !directionPositions.destPos) {
+  const {startPos, destPos} = directionPositions.getPositions();
+  if (!startPos || !destPos) {
     // FIXME deduce from inputs.
     return;
   }
 
   // Fit both the starting point and the destination into the map.
   const bounds = new maps.LatLngBounds();
-  bounds.extend(new maps.LatLng(directionPositions.startPos.lat, directionPositions.startPos.lng));
-  bounds.extend(new maps.LatLng(directionPositions.destPos.lat, directionPositions.destPos.lng));
+  bounds.extend(new maps.LatLng(startPos.lat, startPos.lng));
+  bounds.extend(new maps.LatLng(destPos.lat, destPos.lng));
   map.fitBounds(bounds);
 
   shortestPath(
     maps,
-    directionPositions.startPos,
-    directionPositions.destPos,
+    startPos,
+    destPos,
     getTime(new Date()),
   )
     .then(result => {
@@ -82,7 +82,7 @@ const addGoogleSearchBox = (map, maps, fromRef, toRef) => {
 };
 
 const addSearchListener = (searchBox, map, maps, kind) => {
-  let marker = kind === 'from' ? originMarker : destinationMarker;
+  let marker = kind === 'from' ? startMarker : destMarker;
 
   let location = null;
   maps.event.addListener(searchBox, 'places_changed', () => {
@@ -96,15 +96,15 @@ const addSearchListener = (searchBox, map, maps, kind) => {
       alert('Please chose a location between Lugano and surroundings.')
     } else {
       if (kind === 'to') {
-        directionPositions.destPos = {
+        directionPositions.setDest({
           lat: location.lat(),
           lng: location.lng(),
-        };
+        });
       } else {
-        directionPositions.startPos = {
+        directionPositions.setStart( {
           lat: location.lat(),
           lng: location.lng(),
-        };
+        });
       }
 
       marker = createUniqueMarker(
@@ -117,8 +117,17 @@ const addSearchListener = (searchBox, map, maps, kind) => {
         true,
       );
       marker.setMap(map);
+      if(kind === 'from') {
+        directionPositions.setStartMarker(marker);
+      }else{
+        directionPositions.setDestMarker(marker);
+      }
     }
     searchBox.set('map', map);
+    map.panTo(location);
+
+
+
   });
 };
 
