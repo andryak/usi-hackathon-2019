@@ -1,68 +1,23 @@
-import mapValues from 'lodash/mapValues';
+import stations from '../data/stations';
+import stationToStationDirections from '../data/stationToStationDirections';
 import geodistance from './geodistance';
 import memo from './memo';
-import stationsRaw from '../data/stations';
-import stationToStationDirections from '../data/stationToStationDirections';
 
-const fakeTimes = {
-  '00': 5,
-  '01': 4,
-  '02': 5,
-  '03': 5,
-  '04': 2,
-  '05': 5,
-  '06': 5,
-  '07': 5,
-  '08': 5,
-  '09': 5,
-  '10': 5,
-  '11': 5,
-  '12': 5,
-  '13': 5,
-  '14': 5,
-  '15': 5,
-  '16': 2,
-  '17': 5,
-  '18': 5,
-  '19': 5,
-  '20': 4,
-  '21': 5,
-  '22': 1,
-  '23': 5,
+const mightHaveFewBikesAt = (station, time) => {
+  const loans =
+    station.loans[time.weekDay] &&
+    station.loans[time.weekDay][time.hour]
+      ? station.loans[time.weekDay][time.hour]
+      : 0;
+
+  const returns =
+    station.returns[time.weekDay] &&
+    station.returns[time.weekDay][time.hour]
+      ? station.returns[time.weekDay][time.hour]
+      : 0;
+
+  return returns - loans < 0;
 };
-
-// TODO get from file.
-const stations = Object.entries(stationsRaw).map(([id, station]) => (
-  new Proxy(station, {
-    get: (obj, prop) => {
-      if (prop === 'id') {
-        return id;
-      }
-      if (prop === 'coords') {
-        return {
-          lat: obj.latitude,
-          lng: obj.longitude,
-        };
-      }
-      if (prop === 'availability') {
-        return {
-          monday: fakeTimes,
-          tuesday: fakeTimes,
-          wednesday: fakeTimes,
-          thursday: fakeTimes,
-          friday: fakeTimes,
-          saturday: fakeTimes,
-          sunday: fakeTimes,
-        }
-      }
-      return obj[prop];
-    }
-  })
-));
-
-const mightHaveFewBikesAt = (station, time) => (
-  station.availability[time.weekDay][time.hour] < 5
-);
 
 const getDirections = memo(
   (maps, startCoords, endCoords, transport) => new Promise((resolve, reject) => {
