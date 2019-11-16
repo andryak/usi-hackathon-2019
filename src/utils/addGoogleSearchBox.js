@@ -1,6 +1,7 @@
 import directionPositions from './directionPositions';
 import shortestPath from './shortestPath';
 import createUniqueMarker from './createUniqueMarker';
+import getTime from './getTime';
 const positionMarker = require('../assets/position_marker.svg');
 
 let originMarker = null;
@@ -52,7 +53,7 @@ const addSearchListener = (searchBox, map, maps, marker, dest) => {
             maps,
             directionPositions.startPos,
             directionPositions.destPos,
-            { weekDay: 'monday', hour: '12' },
+            getTime(new Date()),
           )
             .then(result => {
               if(paths) {

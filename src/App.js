@@ -8,6 +8,7 @@ import getPosition from './utils/getPosition';
 import createUniqueMarker from './utils/createUniqueMarker';
 import addGoogleSearchBox from './utils/addGoogleSearchBox';
 import mightHaveFewBikesAt from './utils/mightHaveFewBikesAt';
+import getTime from './utils/getTime';
 const stationLogo = require('./assets/station_marker.svg');
 const hotStationLogo = require('./assets/station_marker_hot.svg');
 
@@ -21,7 +22,7 @@ const App = () => {
     if(mapHandler && mapHandler.map && luganoStations) {
       for (const station of luganoStations) {
         const { name, coords } = station;
-        const logo =  mightHaveFewBikesAt(station, {weekDay: 'monday', hour: '12'})
+        const logo =  mightHaveFewBikesAt(station, getTime(new Date()))
           ? hotStationLogo
           : stationLogo;
 
