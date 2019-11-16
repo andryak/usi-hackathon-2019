@@ -14,9 +14,9 @@ code {
 
 .infoWindow {
   background-color: #a73492;
-  padding: 0px;
   color: white;
   margin: 0px;
+  padding-right: 15px;
   font-weight: bold;
 }
 
@@ -63,9 +63,9 @@ code {
   background: url('./assets/close.png') !important;
   background-size: cover !important;
   width: 10px !important;
-  right: 5px !important;
+  right: 12px !important;
   height: 10px !important;
-  top: 5px !important;
+  top: 14px !important;
 }
 
 .gm-style-iw-t button  img {
