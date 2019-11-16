@@ -1,17 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import Sidebar from './components/sidebar';
 import styles from './App.module.css';
 import classNames from 'classnames';
 import Map from './components/map';
 import getData from './data/getData';
 import getPosition from './utils/getPosition';
-import showDirections from './utils/showDirections';
 import createUniqueMarker from './utils/createUniqueMarker';
+import addGoogleSearchBox from './utils/addGoogleSearchBox';
 const stationLogo = require('./assets/station_marker.svg');
 
 const App = () => {
   const [mapHandler, setMapHandler] = useState(null);
   const luganoStations = getData('stations');
+  const fromRef = useRef(null);
+  const toRef = useRef(null);
 
   useEffect(() => {
     if(mapHandler && mapHandler.map && luganoStations) {
@@ -24,14 +26,14 @@ const App = () => {
 
   return (
     <div className={classNames('App', styles.container)}>
-      <Sidebar className={styles.sidebar} />
+      <Sidebar className={styles.sidebar} fromRef={fromRef} toRef={toRef} />
       <main className={styles.mainPanel}>
         <Map
           onApiLoaded={async (map, maps) => {
-            setMapHandler({ map, maps });
             const currentPosition = await getPosition();
-            await showDirections(map, maps, currentPosition, 'massagno');
-            await map.setCenter(currentPosition);
+            addGoogleSearchBox(map, maps, fromRef, toRef);
+            map.setCenter(currentPosition);
+            setMapHandler({ map, maps });
           }}
         />
       </main>
