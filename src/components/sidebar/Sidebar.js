@@ -53,10 +53,13 @@ const Sidebar = ({ className, fromRef, toRef, paths, mapHandler }) => {
           Search
         </button>
       </header>
-      <div className={styles.content}/>
-      <div>
-        {shortestPath && shortestPath.map(path => <TripTime path={path}/>)}
+
+      <div className={styles.content}>
+          <div>
+              {shortestPath && shortestPath.map(path => <TripTime path={path}/>)}
+          </div>
       </div>
+
     </nav>
   );
 };

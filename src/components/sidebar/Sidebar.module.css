@@ -107,6 +107,21 @@
     color: white;
 }
 
+.tripTimeContainer{
+    flex-direction: row;
+    vertical-align: middle;
+    flex:1;
+}
+
+.tripDuration{
+    flex:1;
+}
+
+.tripTimeIcon {
+    color:#a63392;
+    margin-right: 0.5rem;
+}
+
 .content {
     width: 100%;
     height: 100%;
