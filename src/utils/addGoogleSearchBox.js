@@ -46,7 +46,7 @@ export const runShortestPathAlg = (map, maps) => {
           path: overviewPath,
           geodesic: true,
           strokeOpacity: transport === 'WALKING' ? 0 : 1,
-          strokeColor: '#67b485',
+          strokeColor: 'rgb(255,96,0)',
           strokeWeight: 4,
           ...(transport === 'WALKING' && { icons: [{ icon: lineSymbol, offset: '10px', repeat: '10px' }]}),
         }));
