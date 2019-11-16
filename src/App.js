@@ -17,6 +17,24 @@ const App = () => {
     }, reject);
   });
 
+  const showDirection = (map, maps, origin, destination) => {
+    const directionsService = new maps.DirectionsService();
+    const directionsDisplay = new maps.DirectionsRenderer();
+    directionsDisplay.setMap(map);
+    directionsService.route({
+        travelMode: 'BICYCLING',
+        origin,
+        destination,
+      }, (res, status) => {
+        if (status === 'OK') {
+          directionsDisplay.setDirections(res);
+        } else {
+          window.alert('Error: ' + status);
+        }
+      }
+    );
+  };
+
   return (
     <div className={classNames('App', styles.container)}>
       <Sidebar className={styles.sidebar} />
@@ -24,6 +42,7 @@ const App = () => {
         <Map
           onApiLoaded={async (map, maps) => {
             const currentPosition = await getCurrentPosition();
+            await showDirection(map, maps, currentPosition, 'massagno');
             map.setCenter(currentPosition);
           }}
         />
