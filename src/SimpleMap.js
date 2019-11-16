@@ -15,7 +15,26 @@ const Marker = ({ text }) => <div>{text}</div>;
 const SimpleMap = () => {
 
   const apiIsLoaded = (map, maps, places)=>{
-    showPosition(map)
+    showPosition(map);
+    showDirection(map, maps);
+  };
+
+  const showDirection = (map, maps) => {
+    const directionsService = new maps.DirectionsService();
+    const directionsDisplay = new maps.DirectionsRenderer();
+    directionsDisplay.setMap(map);
+    directionsService.route({
+        travelMode: 'BICYCLING',
+        origin: 'lugano',
+        destination: 'massagno'
+      }, (res, status) => {
+        if (status === 'OK') {
+          directionsDisplay.setDirections(res);
+        } else {
+          window.alert('Error: ' + status);
+        }
+      }
+    );
   };
 
   const showPosition = (map) => {
