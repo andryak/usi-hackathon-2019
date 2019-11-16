@@ -13,7 +13,7 @@
     border-bottom: 5px solid #943480;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
     .header {
         background-color: #a63392;
         display: flex;
@@ -31,10 +31,16 @@
 .inputContainer {
     display: flex;
     flex-direction: row;
-    flex:1;
+    flex: 1;
 }
 
-.icon{
+.iconContainer {
+    display: flex;
+    align-items: center;
+    padding-bottom: 0.5rem;
+}
+
+.icon {
     color: white;
     margin-right: 0.5rem;
 }

@@ -12,23 +12,29 @@ const Sidebar = ({ className, fromRef, toRef, paths }) => {
   return (
     <nav className={classNames('Sidebar', className, styles.container)}>
       <header className={styles.header}>
-        <div className={styles.inputContainer}>
-          <RoomOutlined className={styles.icon} />
-          <input
-            ref={fromRef}
-            id='from-place'
-            placeholder='Choose starting point...'
-            className={styles.input}
-          />
-        </div>
-        <div className={classNames(styles.inputContainer, styles.secondInput)}>
-          <FlagOutlined className={styles.icon} />
-        <input
-          ref={toRef}
-          id='to-place'
-          placeholder='Choose destination...'
-          className={styles.input}
-        />
+        <div>
+          <div className={styles.inputContainer}>
+            <div className={styles.iconContainer}>
+              <RoomOutlined className={styles.icon} />
+            </div>
+            <input
+              ref={fromRef}
+              id='from-place'
+              placeholder='Choose starting point...'
+              className={styles.input}
+            />
+          </div>
+          <div className={classNames(styles.inputContainer, styles.secondInput)}>
+            <div className={styles.iconContainer}>
+              <FlagOutlined className={styles.icon} />
+            </div>
+            <input
+              ref={toRef}
+              id='to-place'
+              placeholder='Choose destination...'
+              className={styles.input}
+            />
+          </div>
         </div>
       </header>
       <div className={styles.content}/>
