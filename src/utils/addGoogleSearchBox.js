@@ -60,15 +60,15 @@ const addSearchListener = (searchBox, map, maps, marker, dest) => {
               var lineSymbol = {
                 path: 'M 0,-1 0,1',
                 strokeOpacity: 1,
-                scale: 4
+                scale: 5,
             };
               // Draw shortest path first.
               paths = result.shortest.map(({ transport, overviewPath }) => new maps.Polyline({
                 path: overviewPath,
                 geodesic: true,
-                strokeColor:'#bd7fb5',
+                strokeColor:'#a328a2',
                 strokeOpacity: transport === 'WALKING' ? 0:1,
-                strokeWeight: 10,
+                strokeWeight: 7,
                 icons: [{
                   icon: lineSymbol,
                   offset: '0',
