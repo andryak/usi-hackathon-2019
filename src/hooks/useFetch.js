@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import getData from '../data/getData';
 
 export default (url, options) => {
   const [response, setResponse] = useState(null);
@@ -9,8 +8,8 @@ export default (url, options) => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const res = await getData(url, options);
-        const json = typeof(res)==='object'? res: await res.json();
+        const res = await fetch(url, options);
+        const json = await res.json();
         setResponse(json);
         setIsLoading(false)
       } catch (error) {

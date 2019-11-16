@@ -3,7 +3,8 @@ import Sidebar from './components/sidebar';
 import styles from './App.module.css';
 import classNames from 'classnames';
 import Map from './components/map';
-import useFetch from './hooks/useFetch';
+// import useFetch from './hooks/useFetch';
+import getData from './data/getData';
 
 const App = () => {
   const getCurrentPosition = () => new Promise((resolve, reject) => {
@@ -19,13 +20,13 @@ const App = () => {
   });
 
   const [mapHandler, setMapHandler] = useState(null);
-  const { response, error, isLoading } = useFetch('https://api.publibike.ch/v1/public/stations/');
+  const luganoStations = getData('stations');
 
   useEffect(() => {
-    if(mapHandler && response){
-      // show bikes
+    if(mapHandler && luganoStations){
+      console.log(luganoStations)
     }
-  },[mapHandler,response]);
+  },[mapHandler,luganoStations]);
 
   const showDirection = (map, maps, origin, destination) => {
     const directionsService = new maps.DirectionsService();

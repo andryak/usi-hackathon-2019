@@ -1,1 +1,392 @@
-export default [{'id':551,'latitude':46.957196,'longitude':7.450895,'state':{'id':1,'name':'Active'}},{'id':186,'latitude':46.9493284,'longitude':7.3939866,'state':{'id':1,'name':'Active'}},{'id':29,'latitude':46.5058,'longitude':6.6711,'state':{'id':1,'name':'Active'}},{'id':279,'latitude':47.39808,'longitude':8.533647,'state':{'id':1,'name':'Active'}},{'id':221,'latitude':46.9519742,'longitude':7.4227466,'state':{'id':1,'name':'Active'}},{'id':263,'latitude':47.359978,'longitude':8.552717,'state':{'id':1,'name':'Active'}},{'id':368,'latitude':47.3619068,'longitude':8.5609218,'state':{'id':1,'name':'Active'}},{'id':547,'latitude':46.942351,'longitude':7.452777,'state':{'id':1,'name':'Active'}},{'id':59,'latitude':46.23055,'longitude':7.373705,'state':{'id':1,'name':'Active'}},{'id':392,'latitude':47.393309,'longitude':8.528074,'state':{'id':1,'name':'Active'}},{'id':459,'latitude':46.958241,'longitude':7.4474859,'state':{'id':1,'name':'Active'}},{'id':305,'latitude':46.9413996,'longitude':7.4316924,'state':{'id':1,'name':'Active'}},{'id':363,'latitude':47.416155,'longitude':8.541712,'state':{'id':1,'name':'Active'}},{'id':490,'latitude':46.534129,'longitude':6.606292,'state':{'id':1,'name':'Active'}},{'id':278,'latitude':47.417701,'longitude':8.545602,'state':{'id':1,'name':'Active'}},{'id':178,'latitude':46.9372059,'longitude':7.3872274,'state':{'id':1,'name':'Active'}},{'id':18,'latitude':46.536889,'longitude':6.578087,'state':{'id':1,'name':'Active'}},{'id':417,'latitude':46.928811,'longitude':7.416111,'state':{'id':1,'name':'Active'}},{'id':446,'latitude':47.3663708,'longitude':8.514176,'state':{'id':1,'name':'Active'}},{'id':134,'latitude':47.358557,'longitude':8.557088,'state':{'id':1,'name':'Active'}},{'id':20,'latitude':46.506896,'longitude':6.626253,'state':{'id':1,'name':'Active'}},{'id':58,'latitude':46.2278,'longitude':7.3595,'state':{'id':1,'name':'Active'}},{'id':25,'latitude':46.517157,'longitude':6.630652,'state':{'id':1,'name':'Active'}},{'id':424,'latitude':47.406988,'longitude':8.532464,'state':{'id':1,'name':'Active'}},{'id':309,'latitude':46.9405957,'longitude':7.418738,'state':{'id':1,'name':'Active'}},{'id':361,'latitude':47.394554,'longitude':8.522117,'state':{'id':1,'name':'Active'}},{'id':130,'latitude':47.391366,'longitude':8.488108,'state':{'id':1,'name':'Active'}},{'id':531,'latitude':47.417668,'longitude':8.593612,'state':{'id':1,'name':'Active'}},{'id':384,'latitude':47.378556,'longitude':8.520168,'state':{'id':1,'name':'Active'}},{'id':481,'latitude':46.9320203,'longitude':7.4330474,'state':{'id':1,'name':'Active'}},{'id':165,'latitude':46.38421,'longitude':6.23491,'state':{'id':1,'name':'Active'}},{'id':285,'latitude':47.36691,'longitude':8.548562,'state':{'id':1,'name':'Active'}},{'id':530,'latitude':47.404646,'longitude':8.604951,'state':{'id':1,'name':'Active'}},{'id':307,'latitude':46.9480092,'longitude':7.4218977,'state':{'id':1,'name':'Active'}},{'id':567,'latitude':47.381447,'longitude':8.497982,'state':{'id':1,'name':'Active'}},{'id':97,'latitude':47.3771535,'longitude':8.5104883,'state':{'id':1,'name':'Active'}},{'id':292,'latitude':46.946604,'longitude':7.441624,'state':{'id':1,'name':'Active'}},{'id':331,'latitude':46.9458073,'longitude':7.4270475,'state':{'id':1,'name':'Active'}},{'id':105,'latitude':47.3775022,'longitude':8.5360685,'state':{'id':1,'name':'Active'}},{'id':540,'latitude':47.403822,'longitude':8.546464,'state':{'id':1,'name':'Active'}},{'id':252,'latitude':46.9497908,'longitude':7.4441278,'state':{'id':1,'name':'Active'}},{'id':33,'latitude':46.512991,'longitude':6.614122,'state':{'id':1,'name':'Active'}},{'id':108,'latitude':47.386741,'longitude':8.518982,'state':{'id':1,'name':'Active'}},{'id':466,'latitude':46.9486216,'longitude':7.3827534,'state':{'id':1,'name':'Active'}},{'id':170,'latitude':46.420183,'longitude':6.27016,'state':{'id':1,'name':'Active'}},{'id':447,'latitude':47.371455,'longitude':8.5070564,'state':{'id':1,'name':'Active'}},{'id':143,'latitude':47.3899,'longitude':8.523722,'state':{'id':1,'name':'Active'}},{'id':418,'latitude':46.928856,'longitude':7.446403,'state':{'id':1,'name':'Active'}},{'id':254,'latitude':46.9486345,'longitude':7.4567436,'state':{'id':1,'name':'Active'}},{'id':536,'latitude':47.381591,'longitude':8.49038,'state':{'id':1,'name':'Active'}},{'id':187,'latitude':46.9474443,'longitude':7.4650242,'state':{'id':1,'name':'Active'}},{'id':528,'latitude':47.4482,'longitude':8.58392,'state':{'id':1,'name':'Active'}},{'id':312,'latitude':46.9356089,'longitude':7.4471426,'state':{'id':1,'name':'Active'}},{'id':293,'latitude':46.9465196,'longitude':7.4481457,'state':{'id':1,'name':'Active'}},{'id':324,'latitude':46.9458861,'longitude':7.4146074,'state':{'id':1,'name':'Active'}},{'id':201,'latitude':46.956093,'longitude':7.425518,'state':{'id':1,'name':'Active'}},{'id':141,'latitude':47.366752,'longitude':8.544935,'state':{'id':1,'name':'Active'}},{'id':450,'latitude':47.350578,'longitude':8.560587,'state':{'id':1,'name':'Active'}},{'id':156,'latitude':47.386596,'longitude':8.490837,'state':{'id':1,'name':'Active'}},{'id':414,'latitude':46.926197,'longitude':7.417231,'state':{'id':1,'name':'Active'}},{'id':225,'latitude':46.955612,'longitude':7.428041,'state':{'id':1,'name':'Active'}},{'id':196,'latitude':46.9665865,'longitude':7.4639627,'state':{'id':1,'name':'Active'}},{'id':191,'latitude':46.9601467,'longitude':7.4543336,'state':{'id':1,'name':'Active'}},{'id':270,'latitude':46.291525,'longitude':7.533052,'state':{'id':1,'name':'Active'}},{'id':90,'latitude':47.3917964,'longitude':8.5056978,'state':{'id':1,'name':'Active'}},{'id':427,'latitude':47.4188324,'longitude':8.5064743,'state':{'id':1,'name':'Active'}},{'id':128,'latitude':47.363148,'longitude':8.518143,'state':{'id':1,'name':'Active'}},{'id':445,'latitude':47.4095467,'longitude':8.5563463,'state':{'id':1,'name':'Active'}},{'id':302,'latitude':46.938576,'longitude':7.437862,'state':{'id':1,'name':'Active'}},{'id':149,'latitude':47.392336,'longitude':8.491061,'state':{'id':1,'name':'Active'}},{'id':367,'latitude':47.368199,'longitude':8.560476,'state':{'id':1,'name':'Active'}},{'id':421,'latitude':46.9229774,'longitude':7.4141121,'state':{'id':1,'name':'Active'}},{'id':310,'latitude':46.9594104,'longitude':7.4350187,'state':{'id':1,'name':'Active'}},{'id':426,'latitude':47.4039845,'longitude':8.5787183,'state':{'id':1,'name':'Active'}},{'id':564,'latitude':47.345248,'longitude':8.535082,'state':{'id':1,'name':'Active'}},{'id':229,'latitude':46.9412568,'longitude':7.4507099,'state':{'id':1,'name':'Active'}},{'id':378,'latitude':46.0082843,'longitude':8.9512745,'state':{'id':1,'name':'Active'}},{'id':161,'latitude':46.38278,'longitude':6.24357,'state':{'id':1,'name':'Active'}},{'id':486,'latitude':46.9503044,'longitude':7.4145806,'state':{'id':1,'name':'Active'}},{'id':126,'latitude':47.381356,'longitude':8.510418,'state':{'id':1,'name':'Active'}},{'id':189,'latitude':46.9618565,'longitude':7.4592662,'state':{'id':1,'name':'Active'}},{'id':333,'latitude':46.9367315,'longitude':7.475845,'state':{'id':1,'name':'Active'}},{'id':516,'latitude':47.418472,'longitude':8.561746,'state':{'id':1,'name':'Active'}},{'id':101,'latitude':47.3625938,'longitude':8.5348427,'state':{'id':1,'name':'Active'}},{'id':30,'latitude':46.511048,'longitude':6.492569,'state':{'id':1,'name':'Active'}},{'id':471,'latitude':46.947752,'longitude':7.403591,'state':{'id':1,'name':'Active'}},{'id':46,'latitude':46.021942,'longitude':8.962901,'state':{'id':1,'name':'Active'}},{'id':26,'latitude':46.521668,'longitude':6.581345,'state':{'id':1,'name':'Active'}},{'id':266,'latitude':47.375819,'longitude':8.516676,'state':{'id':1,'name':'Active'}},{'id':526,'latitude':47.395368,'longitude':8.603989,'state':{'id':1,'name':'Active'}},{'id':527,'latitude':47.44173,'longitude':8.56879,'state':{'id':1,'name':'Active'}},{'id':568,'latitude':47.347701,'longitude':8.528049,'state':{'id':1,'name':'Active'}},{'id':286,'latitude':47.3985553,'longitude':8.493822,'state':{'id':1,'name':'Active'}},{'id':308,'latitude':46.9465416,'longitude':7.4356627,'state':{'id':1,'name':'Active'}},{'id':562,'latitude':47.370238,'longitude':8.514841,'state':{'id':1,'name':'Active'}},{'id':160,'latitude':47.385718,'longitude':8.524762,'state':{'id':1,'name':'Active'}},{'id':9,'latitude':46.519805,'longitude':6.579676,'state':{'id':1,'name':'Active'}},{'id':181,'latitude':46.9378963,'longitude':7.3954739,'state':{'id':1,'name':'Active'}},{'id':223,'latitude':46.9506632,'longitude':7.4370414,'state':{'id':1,'name':'Active'}},{'id':428,'latitude':47.40158,'longitude':8.58841,'state':{'id':1,'name':'Active'}},{'id':212,'latitude':46.958717,'longitude':7.4646494,'state':{'id':1,'name':'Active'}},{'id':87,'latitude':47.371083,'longitude':8.536101,'state':{'id':1,'name':'Active'}},{'id':419,'latitude':46.93036,'longitude':7.41929,'state':{'id':1,'name':'Active'}},{'id':121,'latitude':46.956956,'longitude':7.48287,'state':{'id':1,'name':'Active'}},{'id':519,'latitude':47.430911,'longitude':8.562033,'state':{'id':1,'name':'Active'}},{'id':133,'latitude':47.36162,'longitude':8.554501,'state':{'id':1,'name':'Active'}},{'id':553,'latitude':46.944672,'longitude':7.422308,'state':{'id':1,'name':'Active'}},{'id':548,'latitude':46.944243,'longitude':7.399437,'state':{'id':1,'name':'Active'}},{'id':396,'latitude':47.409964,'longitude':8.535802,'state':{'id':1,'name':'Active'}},{'id':164,'latitude':47.387531,'longitude':8.527138,'state':{'id':1,'name':'Active'}},{'id':37,'latitude':46.537813,'longitude':6.581462,'state':{'id':1,'name':'Active'}},{'id':477,'latitude':46.9616862,'longitude':7.4396136,'state':{'id':1,'name':'Active'}},{'id':261,'latitude':46.9366583,'longitude':7.4679887,'state':{'id':1,'name':'Active'}},{'id':122,'latitude':46.9613082,'longitude':7.4466679,'state':{'id':1,'name':'Active'}},{'id':501,'latitude':46.803797,'longitude':7.161559,'state':{'id':1,'name':'Active'}},{'id':233,'latitude':46.802604,'longitude':7.1509925,'state':{'id':1,'name':'Active'}},{'id':542,'latitude':46.231055,'longitude':7.400189,'state':{'id':1,'name':'Active'}},{'id':465,'latitude':46.9469627,'longitude':7.389054,'state':{'id':1,'name':'Active'}},{'id':455,'latitude':47.3859194,'longitude':8.4981964,'state':{'id':1,'name':'Active'}},{'id':423,'latitude':46.933129,'longitude':7.455933,'state':{'id':1,'name':'Active'}},{'id':319,'latitude':47.00268,'longitude':7.44109,'state':{'id':1,'name':'Active'}},{'id':107,'latitude':47.3647902,'longitude':8.5306155,'state':{'id':1,'name':'Active'}},{'id':162,'latitude':46.38347,'longitude':6.2137814,'state':{'id':1,'name':'Active'}},{'id':96,'latitude':47.378548,'longitude':8.531836,'state':{'id':1,'name':'Active'}},{'id':202,'latitude':46.9565421,'longitude':7.4317735,'state':{'id':1,'name':'Active'}},{'id':479,'latitude':46.9581458,'longitude':7.4349895,'state':{'id':1,'name':'Active'}},{'id':509,'latitude':46.79619,'longitude':7.14288,'state':{'id':1,'name':'Active'}},{'id':176,'latitude':46.934694,'longitude':7.3892135,'state':{'id':1,'name':'Active'}},{'id':14,'latitude':46.5224054,'longitude':6.5655126,'state':{'id':1,'name':'Active'}},{'id':95,'latitude':47.377148,'longitude':8.523818,'state':{'id':1,'name':'Active'}},{'id':237,'latitude':46.806661,'longitude':7.1620248,'state':{'id':1,'name':'Active'}},{'id':560,'latitude':47.3767,'longitude':8.52689,'state':{'id':1,'name':'Active'}},{'id':10,'latitude':46.526079,'longitude':6.579268,'state':{'id':1,'name':'Active'}},{'id':184,'latitude':46.9489732,'longitude':7.3882333,'state':{'id':1,'name':'Active'}},{'id':549,'latitude':46.951735,'longitude':7.416496,'state':{'id':1,'name':'Active'}},{'id':329,'latitude':46.94167,'longitude':7.42598,'state':{'id':1,'name':'Active'}},{'id':532,'latitude':47.412103,'longitude':8.592144,'state':{'id':1,'name':'Active'}},{'id':166,'latitude':46.425927,'longitude':6.28774,'state':{'id':1,'name':'Active'}},{'id':274,'latitude':47.375991201,'longitude':8.541239126,'state':{'id':1,'name':'Active'}},{'id':94,'latitude':47.3758639,'longitude':8.5354006,'state':{'id':1,'name':'Active'}},{'id':168,'latitude':46.417718,'longitude':6.267441,'state':{'id':1,'name':'Active'}},{'id':255,'latitude':46.9526864,'longitude':7.4299899,'state':{'id':1,'name':'Active'}},{'id':6,'latitude':46.518108,'longitude':6.564945,'state':{'id':1,'name':'Active'}},{'id':185,'latitude':46.9465343,'longitude':7.4004614,'state':{'id':1,'name':'Active'}},{'id':505,'latitude':46.811754,'longitude':7.150142,'state':{'id':1,'name':'Active'}},{'id':226,'latitude':46.9557805,'longitude':7.4352658,'state':{'id':1,'name':'Active'}},{'id':415,'latitude':46.916092,'longitude':7.418571,'state':{'id':1,'name':'Active'}},{'id':135,'latitude':47.361335,'longitude':8.547781,'state':{'id':1,'name':'Active'}},{'id':194,'latitude':46.9586067,'longitude':7.456932,'state':{'id':1,'name':'Active'}},{'id':41,'latitude':45.953905,'longitude':8.949715,'state':{'id':1,'name':'Active'}},{'id':269,'latitude':46.283387,'longitude':7.53985,'state':{'id':1,'name':'Active'}},{'id':258,'latitude':46.9475995,'longitude':7.4473498,'state':{'id':1,'name':'Active'}},{'id':291,'latitude':46.9635131,'longitude':7.4555218,'state':{'id':1,'name':'Active'}},{'id':277,'latitude':47.413514,'longitude':8.537816,'state':{'id':1,'name':'Active'}},{'id':389,'latitude':47.413032,'longitude':8.558096,'state':{'id':1,'name':'Active'}},{'id':137,'latitude':47.370869,'longitude':8.548045,'state':{'id':1,'name':'Active'}},{'id':192,'latitude':46.9677817,'longitude':7.4646494,'state':{'id':1,'name':'Active'}},{'id':356,'latitude':47.3801757,'longitude':8.552432,'state':{'id':1,'name':'Active'}},{'id':190,'latitude':46.9603316,'longitude':7.4614522,'state':{'id':1,'name':'Active'}},{'id':35,'latitude':46.510562,'longitude':6.499863,'state':{'id':1,'name':'Active'}},{'id':499,'latitude':46.801805,'longitude':7.136609,'state':{'id':1,'name':'Active'}},{'id':470,'latitude':46.9438169,'longitude':7.3955825,'state':{'id':1,'name':'Active'}},{'id':522,'latitude':47.444516,'longitude':8.582115,'state':{'id':1,'name':'Active'}},{'id':550,'latitude':46.958014,'longitude':7.444949,'state':{'id':1,'name':'Active'}},{'id':227,'latitude':46.9545136,'longitude':7.4294963,'state':{'id':1,'name':'Active'}},{'id':99,'latitude':47.37497,'longitude':8.519782,'state':{'id':1,'name':'Active'}},{'id':217,'latitude':46.9483305,'longitude':7.44079,'state':{'id':1,'name':'Active'}},{'id':216,'latitude':46.9538192,'longitude':7.4581813,'state':{'id':1,'name':'Active'}},{'id':559,'latitude':47.374241,'longitude':8.525602,'state':{'id':1,'name':'Active'}},{'id':172,'latitude':46.3941883,'longitude':6.2498162,'state':{'id':1,'name':'Active'}},{'id':386,'latitude':47.384902,'longitude':8.547904,'state':{'id':1,'name':'Active'}},{'id':517,'latitude':47.43326,'longitude':8.56635,'state':{'id':1,'name':'Active'}},{'id':449,'latitude':47.383858,'longitude':8.528796,'state':{'id':1,'name':'Active'}},{'id':555,'latitude':46.946839,'longitude':7.4556,'state':{'id':1,'name':'Active'}},{'id':529,'latitude':47.424155,'longitude':8.562301,'state':{'id':1,'name':'Active'}},{'id':288,'latitude':45.982056,'longitude':8.918121,'state':{'id':1,'name':'Active'}},{'id':117,'latitude':46.95675,'longitude':7.46789,'state':{'id':1,'name':'Active'}},{'id':100,'latitude':47.368064,'longitude':8.539046,'state':{'id':1,'name':'Active'}},{'id':244,'latitude':46.9603536,'longitude':7.4485856,'state':{'id':1,'name':'Active'}},{'id':142,'latitude':47.3742296,'longitude':8.5285533,'state':{'id':1,'name':'Active'}},{'id':159,'latitude':47.371868,'longitude':8.515558,'state':{'id':1,'name':'Active'}},{'id':257,'latitude':46.9480422,'longitude':7.4502406,'state':{'id':1,'name':'Active'}},{'id':453,'latitude':47.3836391,'longitude':8.4941268,'state':{'id':1,'name':'Active'}},{'id':271,'latitude':46.9478655,'longitude':7.4371433,'state':{'id':1,'name':'Active'}},{'id':92,'latitude':47.3820827,'longitude':8.5286468,'state':{'id':1,'name':'Active'}},{'id':454,'latitude':47.364871,'longitude':8.537971,'state':{'id':1,'name':'Active'}},{'id':330,'latitude':46.9427163,'longitude':7.4410406,'state':{'id':1,'name':'Active'}},{'id':264,'latitude':47.353198,'longitude':8.553189,'state':{'id':1,'name':'Active'}},{'id':497,'latitude':46.958093,'longitude':7.454522,'state':{'id':1,'name':'Active'}},{'id':462,'latitude':46.9558281,'longitude':7.4529965,'state':{'id':1,'name':'Active'}},{'id':395,'latitude':47.3669233,'longitude':8.5420304,'state':{'id':1,'name':'Active'}},{'id':492,'latitude':46.947654,'longitude':7.4377602,'state':{'id':1,'name':'Active'}},{'id':193,'latitude':46.9552642,'longitude':7.4593279,'state':{'id':1,'name':'Active'}},{'id':301,'latitude':46.9440348,'longitude':7.4120405,'state':{'id':1,'name':'Active'}},{'id':440,'latitude':46.0166117,'longitude':8.9596513,'state':{'id':1,'name':'Active'}},{'id':49,'latitude':46.005653,'longitude':8.951857,'state':{'id':1,'name':'Active'}},{'id':502,'latitude':46.79435,'longitude':7.14049,'state':{'id':1,'name':'Active'}},{'id':47,'latitude':46.02398,'longitude':8.968292,'state':{'id':1,'name':'Active'}},{'id':300,'latitude':46.9371912,'longitude':7.4360892,'state':{'id':1,'name':'Active'}},{'id':381,'latitude':46.012252,'longitude':8.955118,'state':{'id':1,'name':'Active'}},{'id':238,'latitude':46.7804953,'longitude':7.1505764,'state':{'id':1,'name':'Active'}},{'id':153,'latitude':47.365272,'longitude':8.52174,'state':{'id':1,'name':'Active'}},{'id':260,'latitude':46.9486794,'longitude':7.4532728,'state':{'id':1,'name':'Active'}},{'id':213,'latitude':46.9503428,'longitude':7.435298,'state':{'id':1,'name':'Active'}},{'id':452,'latitude':47.356387,'longitude':8.526158,'state':{'id':1,'name':'Active'}},{'id':228,'latitude':46.9534206,'longitude':7.4328277,'state':{'id':1,'name':'Active'}},{'id':370,'latitude':47.4039985,'longitude':8.5721264,'state':{'id':1,'name':'Active'}},{'id':104,'latitude':47.373936,'longitude':8.538633,'state':{'id':1,'name':'Active'}},{'id':55,'latitude':46.224204,'longitude':7.333028,'state':{'id':1,'name':'Active'}},{'id':86,'latitude':47.40781197,'longitude':8.506822854,'state':{'id':1,'name':'Active'}},{'id':89,'latitude':47.3713591,'longitude':8.5313344,'state':{'id':1,'name':'Active'}},{'id':140,'latitude':47.366904,'longitude':8.533736,'state':{'id':1,'name':'Active'}},{'id':484,'latitude':46.9456022,'longitude':7.434734,'state':{'id':1,'name':'Active'}},{'id':82,'latitude':47.359675,'longitude':8.535718,'state':{'id':1,'name':'Active'}},{'id':93,'latitude':47.384918,'longitude':8.531935,'state':{'id':1,'name':'Active'}},{'id':232,'latitude':46.9441328,'longitude':7.449692,'state':{'id':1,'name':'Active'}},{'id':510,'latitude':46.808006,'longitude':7.155941,'state':{'id':1,'name':'Active'}},{'id':106,'latitude':47.382798,'longitude':8.53545,'state':{'id':1,'name':'Active'}},{'id':316,'latitude':46.9446775,'longitude':7.4432641,'state':{'id':1,'name':'Active'}},{'id':520,'latitude':47.40245,'longitude':8.62726,'state':{'id':1,'name':'Active'}},{'id':485,'latitude':46.9432858,'longitude':7.4144036,'state':{'id':1,'name':'Active'}},{'id':40,'latitude':45.9242,'longitude':8.9192,'state':{'id':1,'name':'Active'}},{'id':416,'latitude':46.93046,'longitude':7.428167,'state':{'id':1,'name':'Active'}},{'id':253,'latitude':46.9534004,'longitude':7.4285549,'state':{'id':1,'name':'Active'}},{'id':127,'latitude':47.361567,'longitude':8.525525,'state':{'id':1,'name':'Active'}},{'id':203,'latitude':46.9569128,'longitude':7.4376583,'state':{'id':1,'name':'Active'}},{'id':297,'latitude':46.9419202,'longitude':7.3992444,'state':{'id':1,'name':'Active'}},{'id':31,'latitude':46.50737,'longitude':6.495352,'state':{'id':1,'name':'Active'}},{'id':234,'latitude':46.815219,'longitude':7.155715,'state':{'id':1,'name':'Active'}},{'id':515,'latitude':47.3690153,'longitude':8.5543974,'state':{'id':1,'name':'Active'}},{'id':12,'latitude':46.520723,'longitude':6.568276,'state':{'id':1,'name':'Active'}},{'id':554,'latitude':46.95251,'longitude':7.467399,'state':{'id':1,'name':'Active'}},{'id':563,'latitude':47.360004,'longitude':8.534227,'state':{'id':1,'name':'Active'}},{'id':503,'latitude':46.809589,'longitude':7.14687,'state':{'id':1,'name':'Active'}},{'id':150,'latitude':47.359872,'longitude':8.52306,'state':{'id':1,'name':'Active'}},{'id':45,'latitude':46.023159,'longitude':8.959919,'state':{'id':1,'name':'Active'}},{'id':524,'latitude':47.450893,'longitude':8.582374,'state':{'id':1,'name':'Active'}},{'id':295,'latitude':46.9371056,'longitude':7.4178248,'state':{'id':1,'name':'Active'}},{'id':482,'latitude':46.9364423,'longitude':7.437876,'state':{'id':1,'name':'Active'}},{'id':114,'latitude':46.9566007,'longitude':7.4402185,'state':{'id':1,'name':'Active'}},{'id':535,'latitude':46.802937,'longitude':7.167527,'state':{'id':1,'name':'Active'}},{'id':478,'latitude':46.9406928,'longitude':7.4431488,'state':{'id':1,'name':'Active'}},{'id':177,'latitude':46.9501011,'longitude':7.3812327,'state':{'id':1,'name':'Active'}},{'id':327,'latitude':46.938964,'longitude':7.4476281,'state':{'id':1,'name':'Active'}},{'id':411,'latitude':46.9257473,'longitude':7.3770699,'state':{'id':1,'name':'Active'}},{'id':249,'latitude':46.000482,'longitude':8.912639,'state':{'id':1,'name':'Active'}},{'id':434,'latitude':46.0159412,'longitude':8.9668282,'state':{'id':1,'name':'Active'}},{'id':422,'latitude':46.9279582,'longitude':7.452751,'state':{'id':1,'name':'Active'}},{'id':48,'latitude':46.0105808,'longitude':8.95794,'state':{'id':1,'name':'Active'}},{'id':205,'latitude':46.032852,'longitude':8.921806,'state':{'id':1,'name':'Active'}},{'id':88,'latitude':47.3651936,'longitude':8.5257822,'state':{'id':1,'name':'Active'}},{'id':326,'latitude':46.9478691,'longitude':7.4598938,'state':{'id':1,'name':'Active'}},{'id':111,'latitude':47.376756,'longitude':8.548519,'state':{'id':1,'name':'Active'}},{'id':85,'latitude':47.3716661,'longitude':8.5235479,'state':{'id':1,'name':'Active'}},{'id':219,'latitude':46.9514853,'longitude':7.4303815,'state':{'id':1,'name':'Active'}},{'id':523,'latitude':47.43117,'longitude':8.55845,'state':{'id':1,'name':'Active'}},{'id':169,'latitude':46.4223802,'longitude':6.2585274,'state':{'id':1,'name':'Active'}},{'id':545,'latitude':46.943536,'longitude':7.463293,'state':{'id':1,'name':'Active'}},{'id':245,'latitude':46.012749,'longitude':8.914699,'state':{'id':1,'name':'Active'}},{'id':321,'latitude':46.9400573,'longitude':7.4409735,'state':{'id':1,'name':'Active'}},{'id':320,'latitude':46.9464848,'longitude':7.452507,'state':{'id':1,'name':'Active'}},{'id':513,'latitude':47.379719,'longitude':8.537729,'state':{'id':1,'name':'Active'}},{'id':388,'latitude':47.412732,'longitude':8.544185,'state':{'id':1,'name':'Active'}},{'id':131,'latitude':47.365119,'longitude':8.554114,'state':{'id':1,'name':'Active'}},{'id':290,'latitude':46.9473436,'longitude':7.444907,'state':{'id':1,'name':'Active'}},{'id':420,'latitude':46.9356189,'longitude':7.4165883,'state':{'id':1,'name':'Active'}},{'id':306,'latitude':46.9400198,'longitude':7.4317782,'state':{'id':1,'name':'Active'}},{'id':552,'latitude':46.952701,'longitude':7.454585,'state':{'id':1,'name':'Active'}},{'id':511,'latitude':46.974841,'longitude':7.453275,'state':{'id':1,'name':'Active'}},{'id':425,'latitude':47.420757,'longitude':8.508131,'state':{'id':1,'name':'Active'}},{'id':11,'latitude':46.521978,'longitude':6.564896,'state':{'id':1,'name':'Active'}},{'id':84,'latitude':47.3789825,'longitude':8.5412505,'state':{'id':1,'name':'Active'}},{'id':472,'latitude':46.9477995,'longitude':7.454056,'state':{'id':1,'name':'Active'}},{'id':132,'latitude':47.35594,'longitude':8.549852,'state':{'id':1,'name':'Active'}},{'id':167,'latitude':46.39294,'longitude':6.23856,'state':{'id':1,'name':'Active'}},{'id':332,'latitude':46.943804,'longitude':7.4694264,'state':{'id':1,'name':'Active'}},{'id':360,'latitude':47.3876979,'longitude':8.5421457,'state':{'id':1,'name':'Active'}},{'id':322,'latitude':46.9347023,'longitude':7.4420357,'state':{'id':1,'name':'Active'}},{'id':138,'latitude':47.375933,'longitude':8.543447,'state':{'id':1,'name':'Active'}},{'id':377,'latitude':46.0121344,'longitude':8.9657021,'state':{'id':1,'name':'Active'}},{'id':391,'latitude':47.401852,'longitude':8.499265,'state':{'id':1,'name':'Active'}},{'id':431,'latitude':47.362209,'longitude':8.510788,'state':{'id':1,'name':'Active'}},{'id':387,'latitude':47.411057,'longitude':8.543768,'state':{'id':1,'name':'Active'}},{'id':314,'latitude':46.9450822,'longitude':7.4324521,'state':{'id':1,'name':'Active'}},{'id':139,'latitude':47.408827,'longitude':8.549356,'state':{'id':1,'name':'Active'}},{'id':318,'latitude':46.9410334,'longitude':7.4359176,'state':{'id':1,'name':'Active'}},{'id':182,'latitude':46.9627022,'longitude':7.4624876,'state':{'id':1,'name':'Active'}},{'id':491,'latitude':46.9650342,'longitude':7.4514649,'state':{'id':1,'name':'Active'}},{'id':38,'latitude':46.526373,'longitude':6.602609,'state':{'id':1,'name':'Active'}},{'id':171,'latitude':46.41609,'longitude':6.278163,'state':{'id':1,'name':'Active'}},{'id':444,'latitude':47.375247,'longitude':8.496511,'state':{'id':1,'name':'Active'}},{'id':298,'latitude':46.9427331,'longitude':7.4595458,'state':{'id':1,'name':'Active'}},{'id':353,'latitude':46.94831,'longitude':7.44035,'state':{'id':1,'name':'Active'}},{'id':561,'latitude':47.413733,'longitude':8.541541,'state':{'id':1,'name':'Active'}},{'id':8,'latitude':46.518951,'longitude':6.562162,'state':{'id':1,'name':'Active'}},{'id':544,'latitude':46.52864,'longitude':6.566695,'state':{'id':1,'name':'Active'}},{'id':268,'latitude':46.292116,'longitude':7.522262,'state':{'id':1,'name':'Active'}},{'id':276,'latitude':47.414558,'longitude':8.5528182,'state':{'id':1,'name':'Active'}},{'id':429,'latitude':47.4080095,'longitude':8.5777038,'state':{'id':1,'name':'Active'}},{'id':174,'latitude':46.9436036,'longitude':7.4071777,'state':{'id':1,'name':'Active'}},{'id':448,'latitude':47.379686,'longitude':8.501312,'state':{'id':1,'name':'Active'}},{'id':151,'latitude':47.387685,'longitude':8.486284,'state':{'id':1,'name':'Active'}},{'id':464,'latitude':46.9523752,'longitude':7.3914921,'state':{'id':1,'name':'Active'}},{'id':280,'latitude':47.392347,'longitude':8.523549,'state':{'id':1,'name':'Active'}},{'id':393,'latitude':47.415721,'longitude':8.538067,'state':{'id':1,'name':'Active'}},{'id':296,'latitude':46.9439259,'longitude':7.3853056,'state':{'id':1,'name':'Active'}},{'id':43,'latitude':46.005849,'longitude':8.961709,'state':{'id':1,'name':'Active'}},{'id':438,'latitude':46.0036519,'longitude':8.9529036,'state':{'id':1,'name':'Active'}},{'id':358,'latitude':47.397293,'longitude':8.541453,'state':{'id':1,'name':'Active'}},{'id':175,'latitude':46.9393577,'longitude':7.3863865,'state':{'id':1,'name':'Active'}},{'id':313,'latitude':46.9415535,'longitude':7.4708855,'state':{'id':1,'name':'Active'}},{'id':23,'latitude':46.5175143,'longitude':6.5261484,'state':{'id':1,'name':'Active'}},{'id':380,'latitude':46.0090116,'longitude':8.9638054,'state':{'id':1,'name':'Active'}},{'id':463,'latitude':46.9593467,'longitude':7.4518043,'state':{'id':1,'name':'Active'}},{'id':372,'latitude':46.970948,'longitude':7.472052,'state':{'id':1,'name':'Active'}},{'id':50,'latitude':45.984764,'longitude':8.932378,'state':{'id':1,'name':'Active'}},{'id':304,'latitude':46.9429736,'longitude':7.4302386,'state':{'id':1,'name':'Active'}},{'id':506,'latitude':46.803943,'longitude':7.151989,'state':{'id':1,'name':'Active'}},{'id':231,'latitude':46.9524539,'longitude':7.4354213,'state':{'id':1,'name':'Active'}},{'id':475,'latitude':46.9475304,'longitude':7.4521275,'state':{'id':1,'name':'Active'}},{'id':210,'latitude':45.996253,'longitude':8.900957,'state':{'id':1,'name':'Active'}},{'id':207,'latitude':46.001154,'longitude':8.934162,'state':{'id':1,'name':'Active'}},{'id':80,'latitude':47.3795837,'longitude':8.5156327,'state':{'id':1,'name':'Active'}},{'id':518,'latitude':47.39572,'longitude':8.62328,'state':{'id':1,'name':'Active'}},{'id':7,'latitude':46.522591,'longitude':6.584961,'state':{'id':1,'name':'Active'}},{'id':546,'latitude':46.939462,'longitude':7.46973,'state':{'id':1,'name':'Active'}},{'id':558,'latitude':47.369549,'longitude':8.518432,'state':{'id':1,'name':'Active'}},{'id':565,'latitude':47.381174,'longitude':8.532432,'state':{'id':1,'name':'Active'}},{'id':494,'latitude':45.970318,'longitude':8.88374,'state':{'id':1,'name':'Active'}},{'id':500,'latitude':46.794595,'longitude':7.132707,'state':{'id':1,'name':'Active'}},{'id':366,'latitude':47.407098,'longitude':8.55033,'state':{'id':1,'name':'Active'}},{'id':315,'latitude':46.9424453,'longitude':7.4431193,'state':{'id':1,'name':'Active'}},{'id':152,'latitude':47.389823,'longitude':8.49163,'state':{'id':1,'name':'Active'}},{'id':347,'latitude':46.941479,'longitude':7.466444,'state':{'id':1,'name':'Active'}},{'id':476,'latitude':46.9459831,'longitude':7.4394178,'state':{'id':1,'name':'Active'}},{'id':230,'latitude':46.9547361,'longitude':7.4333909,'state':{'id':1,'name':'Active'}},{'id':469,'latitude':46.9450382,'longitude':7.3791687,'state':{'id':1,'name':'Active'}},{'id':218,'latitude':46.961965,'longitude':7.452968,'state':{'id':1,'name':'Active'}},{'id':259,'latitude':46.9539295,'longitude':7.4267524,'state':{'id':1,'name':'Active'}},{'id':173,'latitude':46.355953,'longitude':6.13795,'state':{'id':1,'name':'Active'}},{'id':430,'latitude':47.382089,'longitude':8.547195,'state':{'id':1,'name':'Active'}},{'id':60,'latitude':47.374409,'longitude':8.540191,'state':{'id':1,'name':'Active'}},{'id':39,'latitude':46.52804418,'longitude':6.59119606,'state':{'id':1,'name':'Active'}},{'id':458,'latitude':46.9458027,'longitude':7.4729321,'state':{'id':1,'name':'Active'}},{'id':209,'latitude':46.022676,'longitude':8.917196,'state':{'id':1,'name':'Active'}},{'id':206,'latitude':45.982042,'longitude':8.883593,'state':{'id':1,'name':'Active'}},{'id':197,'latitude':46.9394841,'longitude':7.3899968,'state':{'id':1,'name':'Active'}},{'id':28,'latitude':46.516228,'longitude':6.630028,'state':{'id':1,'name':'Active'}},{'id':22,'latitude':46.508486,'longitude':6.499667,'state':{'id':1,'name':'Active'}},{'id':180,'latitude':46.9477116,'longitude':7.3774722,'state':{'id':1,'name':'Active'}},{'id':124,'latitude':47.37209,'longitude':8.520482,'state':{'id':1,'name':'Active'}},{'id':457,'latitude':46.9525271,'longitude':7.4498355,'state':{'id':1,'name':'Active'}},{'id':110,'latitude':47.396401,'longitude':8.4860017,'state':{'id':1,'name':'Active'}},{'id':53,'latitude':46.232201,'longitude':7.363252,'state':{'id':1,'name':'Active'}},{'id':504,'latitude':46.799339,'longitude':7.151984,'state':{'id':1,'name':'Active'}},{'id':239,'latitude':46.7931454,'longitude':7.1322764,'state':{'id':1,'name':'Active'}},{'id':390,'latitude':47.412873,'longitude':8.533265,'state':{'id':1,'name':'Active'}},{'id':125,'latitude':47.378521,'longitude':8.496727,'state':{'id':1,'name':'Active'}},{'id':61,'latitude':47.4099615,'longitude':8.5452956,'state':{'id':1,'name':'Active'}},{'id':42,'latitude':45.998453,'longitude':8.94848,'state':{'id':1,'name':'Active'}},{'id':435,'latitude':46.009713,'longitude':8.96008,'state':{'id':1,'name':'Active'}},{'id':188,'latitude':46.9551635,'longitude':7.4516789,'state':{'id':1,'name':'Active'}},{'id':525,'latitude':47.400393,'longitude':8.622367,'state':{'id':1,'name':'Active'}},{'id':433,'latitude':46.226638,'longitude':7.342806,'state':{'id':1,'name':'Active'}},{'id':289,'latitude':46.012555,'longitude':8.943487,'state':{'id':1,'name':'Active'}},{'id':250,'latitude':46.9490849,'longitude':7.4444363,'state':{'id':1,'name':'Active'}},{'id':236,'latitude':46.8104076,'longitude':7.1730614,'state':{'id':1,'name':'Active'}},{'id':13,'latitude':46.517153,'longitude':6.561272,'state':{'id':1,'name':'Active'}},{'id':119,'latitude':46.9436621,'longitude':7.4325071,'state':{'id':1,'name':'Active'}},{'id':348,'latitude':46.9724597,'longitude':7.4472127,'state':{'id':1,'name':'Active'}},{'id':352,'latitude':46.9403,'longitude':7.458608,'state':{'id':1,'name':'Active'}},{'id':456,'latitude':46.965031,'longitude':7.4589906,'state':{'id':1,'name':'Active'}},{'id':541,'latitude':46.292365,'longitude':7.532595,'state':{'id':1,'name':'Active'}},{'id':112,'latitude':47.388151,'longitude':8.520449,'state':{'id':1,'name':'Active'}},{'id':508,'latitude':46.80295,'longitude':7.15966,'state':{'id':1,'name':'Active'}},{'id':27,'latitude':46.502204,'longitude':6.481123,'state':{'id':1,'name':'Active'}},{'id':460,'latitude':46.9662414,'longitude':7.4558243,'state':{'id':1,'name':'Active'}},{'id':247,'latitude':46.020356,'longitude':8.916114,'state':{'id':1,'name':'Active'}},{'id':179,'latitude':46.9454695,'longitude':7.3928104,'state':{'id':1,'name':'Active'}},{'id':83,'latitude':47.358663827,'longitude':8.520370505,'state':{'id':1,'name':'Active'}},{'id':323,'latitude':46.9337407,'longitude':7.4485749,'state':{'id':1,'name':'Active'}},{'id':364,'latitude':47.3708387,'longitude':8.5595335,'state':{'id':1,'name':'Active'}},{'id':56,'latitude':46.235671,'longitude':7.359828,'state':{'id':1,'name':'Active'}},{'id':91,'latitude':47.3917837,'longitude':8.5181701,'state':{'id':1,'name':'Active'}},{'id':432,'latitude':46.235077,'longitude':7.377833,'state':{'id':1,'name':'Active'}},{'id':543,'latitude':46.517338,'longitude':6.59775,'state':{'id':1,'name':'Active'}},{'id':241,'latitude':46.794798,'longitude':7.114034,'state':{'id':1,'name':'Active'}},{'id':299,'latitude':46.9399346,'longitude':7.3825121,'state':{'id':1,'name':'Active'}},{'id':385,'latitude':47.368939,'longitude':8.523306,'state':{'id':1,'name':'Active'}},{'id':521,'latitude':47.39733,'longitude':8.61865,'state':{'id':1,'name':'Active'}},{'id':483,'latitude':46.9390885,'longitude':7.4286407,'state':{'id':1,'name':'Active'}},{'id':146,'latitude':46.004469,'longitude':8.947096,'state':{'id':1,'name':'Active'}},{'id':224,'latitude':46.9541456,'longitude':7.4307168,'state':{'id':1,'name':'Active'}},{'id':317,'latitude':46.9460279,'longitude':7.4332165,'state':{'id':1,'name':'Active'}},{'id':211,'latitude':46.383066,'longitude':6.225766,'state':{'id':1,'name':'Active'}},{'id':488,'latitude':46.517009,'longitude':6.635237,'state':{'id':1,'name':'Active'}},{'id':32,'latitude':46.510581,'longitude':6.496026,'state':{'id':1,'name':'Active'}},{'id':204,'latitude':46.9515508,'longitude':7.4345382,'state':{'id':1,'name':'Active'}},{'id':557,'latitude':47.374206,'longitude':8.514138,'state':{'id':1,'name':'Active'}},{'id':507,'latitude':46.804568,'longitude':7.155553,'state':{'id':1,'name':'Active'}},{'id':54,'latitude':46.2285,'longitude':7.3507,'state':{'id':1,'name':'Active'}},{'id':566,'latitude':47.396172,'longitude':8.50373,'state':{'id':1,'name':'Active'}},{'id':441,'latitude':45.989126,'longitude':8.946661,'state':{'id':1,'name':'Active'}},{'id':437,'latitude':46.01876,'longitude':8.96429,'state':{'id':1,'name':'Active'}},{'id':51,'latitude':45.991081,'longitude':8.943799,'state':{'id':1,'name':'Active'}},{'id':52,'latitude':46.232469,'longitude':7.358425,'state':{'id':1,'name':'Active'}},{'id':539,'latitude':47.402801,'longitude':8.58131,'state':{'id':1,'name':'Active'}},{'id':215,'latitude':46.9520639,'longitude':7.4615809,'state':{'id':1,'name':'Active'}},{'id':461,'latitude':46.9470671,'longitude':7.3957642,'state':{'id':1,'name':'Active'}},{'id':473,'latitude':46.9491966,'longitude':7.445947,'state':{'id':1,'name':'Active'}},{'id':436,'latitude':46.013865,'longitude':8.958952,'state':{'id':1,'name':'Active'}},{'id':537,'latitude':47.416873,'longitude':8.555639,'state':{'id':1,'name':'Active'}},{'id':474,'latitude':46.9501048,'longitude':7.4283779,'state':{'id':1,'name':'Active'}},{'id':538,'latitude':47.367656,'longitude':8.516257,'state':{'id':1,'name':'Active'}},{'id':157,'latitude':47.355189,'longitude':8.535119,'state':{'id':1,'name':'Active'}},{'id':77,'latitude':46.234697,'longitude':7.386034,'state':{'id':1,'name':'Active'}},{'id':412,'latitude':46.9266467,'longitude':7.4359484,'state':{'id':1,'name':'Active'}},{'id':365,'latitude':47.388689,'longitude':8.536433,'state':{'id':1,'name':'Active'}},{'id':199,'latitude':46.945724,'longitude':7.3899619,'state':{'id':1,'name':'Active'}},{'id':248,'latitude':45.993326,'longitude':8.924532,'state':{'id':1,'name':'Active'}},{'id':214,'latitude':46.94626,'longitude':7.43804,'state':{'id':1,'name':'Active'}},{'id':183,'latitude':46.9432034,'longitude':7.4735436,'state':{'id':1,'name':'Active'}},{'id':262,'latitude':46.9416249,'longitude':7.4631929,'state':{'id':1,'name':'Active'}},{'id':240,'latitude':46.7899747,'longitude':7.1160135,'state':{'id':1,'name':'Active'}},{'id':413,'latitude':46.9250228,'longitude':7.4154375,'state':{'id':1,'name':'Active'}},{'id':208,'latitude':45.977309,'longitude':8.875447,'state':{'id':1,'name':'Active'}},{'id':357,'latitude':47.370141,'longitude':8.527298,'state':{'id':1,'name':'Active'}},{'id':303,'latitude':46.95099,'longitude':7.4726263,'state':{'id':1,'name':'Active'}},{'id':569,'latitude':47.405751,'longitude':8.539016,'state':{'id':1,'name':'Active'}},{'id':44,'latitude':46.065999,'longitude':8.966679,'state':{'id':1,'name':'Active'}},{'id':158,'latitude':47.373675,'longitude':8.545505,'state':{'id':1,'name':'Active'}},{'id':514,'latitude':47.397885,'longitude':8.596202,'state':{'id':1,'name':'Active'}},{'id':382,'latitude':45.972202,'longitude':8.915525,'state':{'id':1,'name':'Active'}},{'id':275,'latitude':47.394007,'longitude':8.542036,'state':{'id':1,'name':'Active'}},{'id':325,'latitude':46.9360173,'longitude':7.4300596,'state':{'id':1,'name':'Active'}},{'id':371,'latitude':46.933433,'longitude':7.466467,'state':{'id':1,'name':'Active'}},{'id':284,'latitude':46.520323,'longitude':6.631268,'state':{'id':1,'name':'Active'}},{'id':335,'latitude':46.54873,'longitude':6.57476,'state':{'id':3,'name':'Active (empty)'}},{'id':256,'latitude':46.9555118,'longitude':7.4768856,'state':{'id':3,'name':'Active (empty)'}},{'id':487,'latitude':46.523762,'longitude':6.632481,'state':{'id':3,'name':'Active (empty)'}},{'id':154,'latitude':47.372329,'longitude':8.52714,'state':{'id':3,'name':'Active (empty)'}},{'id':379,'latitude':46.0084322,'longitude':8.9575686,'state':{'id':3,'name':'Active (empty)'}},{'id':195,'latitude':46.9543451,'longitude':7.4453536,'state':{'id':3,'name':'Active (empty)'}},{'id':57,'latitude':46.226775,'longitude':7.358569,'state':{'id':3,'name':'Active (empty)'}},{'id':36,'latitude':46.51856,'longitude':6.50736,'state':{'id':3,'name':'Active (empty)'}},{'id':467,'latitude':46.93992,'longitude':7.3950333,'state':{'id':3,'name':'Active (empty)'}},{'id':98,'latitude':47.3731102,'longitude':8.5333139,'state':{'id':3,'name':'Active (empty)'}},{'id':235,'latitude':46.793372,'longitude':7.1584206,'state':{'id':3,'name':'Active (empty)'}},{'id':102,'latitude':47.3897772,'longitude':8.5166922,'state':{'id':3,'name':'Active (empty)'}},{'id':362,'latitude':47.37271,'longitude':8.530437,'state':{'id':3,'name':'Active (empty)'}},{'id':21,'latitude':46.521043,'longitude':6.573253,'state':{'id':3,'name':'Active (empty)'}},{'id':220,'latitude':46.9559178,'longitude':7.4467885,'state':{'id':3,'name':'Active (empty)'}},{'id':163,'latitude':46.3995398,'longitude':6.2321083,'state':{'id':3,'name':'Active (empty)'}},{'id':294,'latitude':46.95386,'longitude':7.4365667,'state':{'id':3,'name':'Active (empty)'}},{'id':109,'latitude':47.37247535,'longitude':8.53001018,'state':{'id':3,'name':'Active (empty)'}},{'id':359,'latitude':47.393409,'longitude':8.512381,'state':{'id':3,'name':'Active (empty)'}},{'id':118,'latitude':46.96845,'longitude':7.46242,'state':{'id':3,'name':'Active (empty)'}},{'id':251,'latitude':46.948808,'longitude':7.447598,'state':{'id':3,'name':'Active (empty)'}},{'id':81,'latitude':47.3899342,'longitude':8.5104051,'state':{'id':3,'name':'Active (empty)'}},{'id':480,'latitude':46.9371088,'longitude':7.4322402,'state':{'id':3,'name':'Active (empty)'}},{'id':334,'latitude':46.520202,'longitude':6.571784,'state':{'id':3,'name':'Active (empty)'}},{'id':489,'latitude':46.523333,'longitude':6.625402,'state':{'id':3,'name':'Active (empty)'}},{'id':129,'latitude':47.379952,'longitude':8.542726,'state':{'id':3,'name':'Active (empty)'}},{'id':311,'latitude':46.9442197,'longitude':7.4366739,'state':{'id':3,'name':'Active (empty)'}},{'id':451,'latitude':47.381915,'longitude':8.515252,'state':{'id':3,'name':'Active (empty)'}},{'id':34,'latitude':46.532879,'longitude':6.566487,'state':{'id':3,'name':'Active (empty)'}},{'id':222,'latitude':46.9534366,'longitude':7.4239308,'state':{'id':3,'name':'Active (empty)'}},{'id':556,'latitude':47.391289,'longitude':8.537546,'state':{'id':3,'name':'Active (empty)'}},{'id':468,'latitude':46.9472511,'longitude':7.3933013,'state':{'id':3,'name':'Active (empty)'}},{'id':273,'latitude':47.389862,'longitude':8.514605,'state':{'id':3,'name':'Active (empty)'}},{'id':328,'latitude':46.9417265,'longitude':7.3930062,'state':{'id':3,'name':'Active (empty)'}},{'id':198,'latitude':46.9439597,'longitude':7.3746103,'state':{'id':3,'name':'Active (empty)'}}]
+export default {
+  '40': {
+    'name': 'Morcote',
+    'address': 'Riva Dal Garav\u00e9ll 8',
+    'zip': '6922',
+    'city': 'Morcote',
+    'latitude': '45.9242',
+    'longitude': '8.9192',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '41': {
+    'name': 'Melide',
+    'address': 'Via alla Bola',
+    'zip': '6815',
+    'city': 'Melide',
+    'latitude': '45.953905',
+    'longitude': '8.949715',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '42': {
+    'name': 'Arte e Cultura LAC',
+    'address': 'Via Antonio Caccia',
+    'zip': '6900',
+    'city': 'Lugano',
+    'latitude': '45.998453',
+    'longitude': '8.94848',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '43': {
+    'name': 'Campo Marzio',
+    'address': 'Viale Castagnola 4',
+    'zip': '6900',
+    'city': 'Lugano',
+    'latitude': '46.005849',
+    'longitude': '8.961709',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '44': {
+    'name': 'Tesserete',
+    'address': 'Piazza Stazione',
+    'zip': '6950',
+    'city': 'Tesserete',
+    'latitude': '46.065999',
+    'longitude': '8.966679',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '45': {
+    'name': 'Stadio',
+    'address': 'Via Trevano 100',
+    'zip': '6900',
+    'city': 'Lugano',
+    'latitude': '46.023159',
+    'longitude': '8.959919',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '46': {
+    'name': 'Via Ciani',
+    'address': 'Via Giacomo E Filippo Ciani',
+    'zip': '6900',
+    'city': 'Lugano',
+    'latitude': '46.021942',
+    'longitude': '8.962901',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '47': {
+    'name': 'Pregassona',
+    'address': 'Via Terzerina',
+    'zip': '6900',
+    'city': 'Lugano',
+    'latitude': '46.02398',
+    'longitude': '8.968292',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '48': {
+    'name': 'USI',
+    'address': 'Via Giuseppe Buffi 13',
+    'zip': '6900',
+    'city': 'Lugano',
+    'latitude': '46.0105808',
+    'longitude': '8.95794',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '49': {
+    'name': 'Contrada di Verla',
+    'address': 'Via Pretorio / Piazza Mercato',
+    'zip': '6900',
+    'city': 'Lugano',
+    'latitude': '46.005653',
+    'longitude': '8.951857',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '50': {
+    'name': 'Fornaci',
+    'address': 'Via Pian Scairolo 9',
+    'zip': '6912',
+    'city': 'Pazzallo',
+    'latitude': '45.984764',
+    'longitude': '8.932378',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '51': {
+    'name': 'Paradiso Centro',
+    'address': 'Via Franco Zorzi',
+    'zip': '6900',
+    'city': 'Lugano',
+    'latitude': '45.991081',
+    'longitude': '8.943799',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '146': {
+    'name': 'Stazione FFS',
+    'address': 'Via Clemente Maraini P+R',
+    'zip': '6900',
+    'city': 'Lugano',
+    'latitude': '46.004469',
+    'longitude': '8.947096',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '205': {
+    'name': 'Manno Parco Giova',
+    'address': 'Via Norello 4',
+    'zip': '6928',
+    'city': 'Manno',
+    'latitude': '46.032852',
+    'longitude': '8.921806',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '206': {
+    'name': 'Magliaso FLP',
+    'address': 'Via Stazione  18',
+    'zip': '6983',
+    'city': 'Magliaso',
+    'latitude': '45.982042',
+    'longitude': '8.883593',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '207': {
+    'name': 'Sorengo Parco Sportivo',
+    'address': 'Via al Laghetto 5',
+    'zip': '6924',
+    'city': 'Sorengo',
+    'latitude': '46.001154',
+    'longitude': '8.934162',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '208': {
+    'name': 'Caslano FLP',
+    'address': 'Via Stazione 77',
+    'zip': '6987',
+    'city': 'Caslano',
+    'latitude': '45.977309',
+    'longitude': '8.875447',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '209': {
+    'name': 'Manno Centro di Calcolo',
+    'address': 'Via Cantonale 16',
+    'zip': '6928',
+    'city': 'Manno',
+    'latitude': '46.022676',
+    'longitude': '8.917196',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '210': {
+    'name': 'Agno FLP',
+    'address': 'Via Stazione 2',
+    'zip': '6982',
+    'city': 'Agno',
+    'latitude': '45.996253',
+    'longitude': '8.900957',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '245': {
+    'name': 'Molinazzo',
+    'address': 'Via Longa',
+    'zip': '6934',
+    'city': 'Bioggio',
+    'latitude': '46.012749',
+    'longitude': '8.914699',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '247': {
+    'name': 'Bioggio Via Industria',
+    'address': 'Via Industria 31',
+    'zip': '6934',
+    'city': 'Bioggio',
+    'latitude': '46.020356',
+    'longitude': '8.916114',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '248': {
+    'name': 'Cappella-Agnuzzo FLP',
+    'address': 'Cappella-Agnuzzo',
+    'zip': '6925',
+    'city': 'Collina d\'Oro',
+    'latitude': '45.993326',
+    'longitude': '8.924532',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '249': {
+    'name': 'Muzzano Industria',
+    'address': 'Via Industria',
+    'zip': '6933',
+    'city': 'Muzzano',
+    'latitude': '46.000482',
+    'longitude': '8.912639',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '288': {
+    'name': 'Montagnola Piazza Brocchi',
+    'address': 'Piazza Brocchi',
+    'zip': '6926',
+    'city': 'Montagnola',
+    'latitude': '45.982056',
+    'longitude': '8.918121',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '289': {
+    'name': 'Massagno',
+    'address': 'via dei Platani,',
+    'zip': '6908',
+    'city': 'Massagno',
+    'latitude': '46.012555',
+    'longitude': '8.943487',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '377': {
+    'name': 'Viganello',
+    'address': 'Via la Santa',
+    'zip': '6900',
+    'city': 'Lugano',
+    'latitude': '46.0121344',
+    'longitude': '8.9657021',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '378': {
+    'name': 'Via Ginevra',
+    'address': 'via Ginevra',
+    'zip': '6900',
+    'city': 'Lugnao',
+    'latitude': '46.0082843',
+    'longitude': '8.9512745',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '379': {
+    'name': 'Lambertenghi',
+    'address': 'Via Bertaro Lambertenghi',
+    'zip': '6900',
+    'city': 'Lugano',
+    'latitude': '46.0084322',
+    'longitude': '8.9575686',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '380': {
+    'name': 'Via Dei Faggi',
+    'address': 'Viale dei Faggi',
+    'zip': '6900',
+    'city': 'Lugano',
+    'latitude': '46.0090116',
+    'longitude': '8.9638054',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '381': {
+    'name': 'Piazza Molino Nuovo',
+    'address': 'Piazza Molino Nuovo',
+    'zip': '6900',
+    'city': 'Lugano',
+    'latitude': '46.012252',
+    'longitude': '8.955118',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '382': {
+    'name': 'Bigogno - Campo sportivo',
+    'address': 'Via Collina d\'Oro',
+    'zip': '6926',
+    'city': 'Colina d\'Oro',
+    'latitude': '45.972202',
+    'longitude': '8.915525',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '434': {
+    'name': 'Via Crocetta',
+    'address': 'Via Crocetta',
+    'zip': '6900',
+    'city': 'Lugano',
+    'latitude': '46.0159412',
+    'longitude': '8.9668282',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '435': {
+    'name': 'Ospedale Italiano di Lugano',
+    'address': 'Via Pietro Cappelli',
+    'zip': '6900',
+    'city': 'Lugano',
+    'latitude': '46.009713',
+    'longitude': '8.96008',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '436': {
+    'name': 'Casa Serena',
+    'address': 'Via Marco da Carona 10-12',
+    'zip': '6900',
+    'city': 'Lugano',
+    'latitude': '46.013865',
+    'longitude': '8.958952',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '437': {
+    'name': 'Via Ceresio',
+    'address': 'Via Ceresio',
+    'zip': '6900',
+    'city': 'Lugano',
+    'latitude': '46.01876',
+    'longitude': '8.96429',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '438': {
+    'name': 'Piazza Manzoni',
+    'address': 'Piazza Manzoni',
+    'zip': '6900',
+    'city': 'Lugano',
+    'latitude': '46.0036519',
+    'longitude': '8.9529036',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '440': {
+    'name': 'Via Beltramina',
+    'address': 'Via Beltramina 16',
+    'zip': '6900',
+    'city': 'Lugano',
+    'latitude': '46.0166117',
+    'longitude': '8.9596513',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '441': {
+    'name': 'Paradiso Stazione FFS',
+    'address': 'Via Carona',
+    'zip': '6900',
+    'city': 'Paradiso',
+    'latitude': '45.989126',
+    'longitude': '8.946661',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  },
+  '494': {
+    'name': 'Caslano Piazza Lago',
+    'address': 'Piazza Lago',
+    'zip': '6987',
+    'city': 'Caslano',
+    'latitude': '45.970318',
+    'longitude': '8.88374',
+    'networkId': '3',
+    'networkName': 'Lugano'
+  }
+}
