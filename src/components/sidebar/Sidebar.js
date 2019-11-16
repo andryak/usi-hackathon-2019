@@ -42,7 +42,7 @@ const Sidebar = ({ className, fromRef, toRef, mapHandler }) => {
           </div>
           <div className={classNames(styles.inputContainer, styles.secondInput)}>
             <div className={styles.iconContainer}>
-              <i className={classNames('far fa-flag', styles.icon)}/>
+              <i className={classNames('fas fa-flag', styles.icon)} />
             </div>
             <input
               ref={toRef}
