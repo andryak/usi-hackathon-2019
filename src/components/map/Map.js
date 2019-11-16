@@ -2,6 +2,7 @@ import React from 'react';
 import GoogleMapReact from 'google-map-react';
 import PropTypes from 'prop-types';
 import styles from './Map.module.css';
+import stylesMap from './stylesMap';
 
 const LUGANO_COORDS = {
   lat: 46.01008,
@@ -13,6 +14,9 @@ const GOOGLE_KEY = process.env.REACT_APP_GOOGLE_KEY;
 const Map = ({ defaultCenter, defaultZoom, onApiLoaded, publibikeStations }) => (
   <div className={styles.map}>
     <GoogleMapReact
+      options={{
+        styles: stylesMap,
+      }}
       yesIWantToUseGoogleMapApiInternals
       onGoogleApiLoaded={({ map, maps }) => onApiLoaded(map, maps)}
       bootstrapURLKeys={{ key: GOOGLE_KEY, libraries: ['places'] }}
