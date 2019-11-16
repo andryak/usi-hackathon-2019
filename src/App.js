@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Sidebar from './components/sidebar';
 import styles from './App.module.css';
 import classNames from 'classnames';
 import Map from './components/map';
+import useFetch from './hooks/useFetch';
 
 const App = () => {
   const getCurrentPosition = () => new Promise((resolve, reject) => {
@@ -17,6 +18,15 @@ const App = () => {
     }, reject);
   });
 
+  const [mapHandler, setMapHandler] = useState(null);
+  const { response, error, isLoading } = useFetch('https://api.publibike.ch/v1/public/stations/');
+
+  useEffect(() => {
+    if(mapHandler && response){
+      // show bikes
+    }
+  },[mapHandler,response]);
+
   const showDirection = (map, maps, origin, destination) => {
     const directionsService = new maps.DirectionsService();
     const directionsDisplay = new maps.DirectionsRenderer();
@@ -29,7 +39,7 @@ const App = () => {
         if (status === 'OK') {
           directionsDisplay.setDirections(res);
         } else {
-          window.alert('Error: ' + status);
+          new Error('Error: ' + status);
         }
       }
     );
@@ -41,9 +51,10 @@ const App = () => {
       <main className={styles.mainPanel}>
         <Map
           onApiLoaded={async (map, maps) => {
+            setMapHandler(map);
             const currentPosition = await getCurrentPosition();
+            await map.setCenter(currentPosition);
             await showDirection(map, maps, currentPosition, 'massagno');
-            map.setCenter(currentPosition);
           }}
         />
       </main>
