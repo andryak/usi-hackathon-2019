@@ -13,6 +13,12 @@ const Sidebar = ({ className, fromRef, toRef, paths, mapHandler }) => {
   return (
     <nav className={classNames('Sidebar', className, styles.container)}>
       <header className={styles.header}>
+        <div className={styles.title}>
+          <img src={`${process.env.PUBLIC_URL}/biker.svg`} width={42} />
+          <span className={styles.titleBike}>Bike</span>
+          <span className={styles.titleMe}>Me</span>
+          <span className={styles.titleThere}>There</span>
+        </div>
         <div>
           <div className={styles.inputContainer}>
             <div className={styles.iconContainer}>
