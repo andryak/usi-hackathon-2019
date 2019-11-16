@@ -1,3 +1,6 @@
+import geodistance from './geodistance';
+import memo from './memo';
+
 const stations = [
   {
     id: 0,
@@ -42,130 +45,82 @@ const stationToStationRoutes = {
   },
 };
 
-const deg2rad = deg => {
-  return deg * (Math.PI/180);
-};
-
-const computeDistance = (coords1, coords2) => {
-  const R = 6371; // Radius of the earth in km
-  const delta = {
-    lat: deg2rad(coords2.lat - coords1.lat),
-    lng: deg2rad(coords2.lng - coords1.lng),
-  };
-  const a =
-    Math.sin(delta.lat / 2) * Math.sin(delta.lat / 2) +
-    Math.cos(deg2rad(coords1.lat)) * Math.cos(deg2rad(coords2.lat)) *
-    Math.sin(delta.lng / 2) * Math.sin(delta.lng / 2)
-  ;
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  return R * c; // Distance in km
-};
-
-const computePathDuration = route => (
-  0 // TODO
+const mightHaveFewBikesAt = (station, time) => (
+  publibikeStationsAvailability[station.id][time.weekDay][time.hour] < 5
 );
 
-const pathHasReward = route => (
-  true // TODO
+const getDirections = memo(
+  (startCoords, endCoords, transport) => Google.getRoute(startCoords, endCoords, transport),
 );
 
+const knn = (stations, point, k = 3) => stations
+  .slice()
+  .sort((s1, s2) => geodistance(s1.coords, point) - geodistance(s2.coords, point))
+  .slice(0, k);
 
+const getCompositeRouteDuration = compositeRoute => compositeRoute
+  .map(({ duration }) => duration)
+  .reduce((acc, value) => acc + value, 0);
 
-// Coords:
-//  - lat: number
-//  - lng: number
+const shortestPath = (startCoords, endCoords, time) => {
+  const startStations = knn(stations, startCoords);
+  const endStations = knn(stations, endCoords);
 
-// Station:
-//  - id: string
-//  - coords: Coords
-
-// RouteBike:
-//  - overviewPath
-//  - duration: number (ms)
-//  - transport: 'BIKE'
-//  - stations:
-//     - from: Station
-//     - to: Station
-
-// RouteFoot:
-//  - overviewPath
-//  - duration: number (ms)
-//  - transport: 'FOOT'
-
-// Route = RouteBike | RouteFoot
-
-// CompositeRoute = Route[]
-
-// Solutions:
-//  - shortest: CompositeRoute
-//  - reward: CompositeRoute
-
-const shortestPath = (start, end) => {
-  const stationsWithDistance = stations.map(station => ({
-    ...station,
-    distanceFromStart: computeDistance(station.coords, start),
-    distanceFromEnd: computeDistance(station.coords, end),
-  }));
-
-  const K = 3;
-  const stationsClosestToStart = stationsWithDistance
-    .slice()
-    .sort((station1, station2) => station1.distanceFromStart - station2.distanceFromStart)
-    .slice(0, K);
-  const stationsClosestToEnd = stationsWithDistance
-    .slice()
-    .sort((station1, station2) => station1.distanceFromEnd - station2.distanceFromEnd)
-    .slice(0, K);
-
-  const stationsWithRouteFromStart = stationsClosestToStart.map(station => ({
-    ...station,
-    route: Google.getRoute(start, station, 'foot'),
-  }));
-  const stationsWithRouteToEnd = stationsClosestToEnd.map(station => ({
-    ...station,
-    route: Google.getRoute(station, end, 'foot'),
-  }));
-
-  const potentialPaths = [];
-  stationsWithRouteFromStart.forEach(startStation => {
-    stationsWithRouteToEnd.forEach(endStation => {
-      const routes = {
-        start: startStation.route,
-        mid: stationToStationRoutes[startStation.id][endStation.id],
-        end: endStation.route,
-      };
-      potentialPaths.push({
-        routes: routes,
-        hasReward: stationHasReward(endStation)
-      })
+  const compositeRoutes = [];
+  startStations.forEach(startStation => {
+    endStations.forEach(endStation => {
+      const fromStartToStartStationDirections = getDirections(startCoords, startStation.coords, 'foot');
+      const fromStartStationToEndStationDirections = getDirections(startStation.coords, endStation.coords, 'bike');
+      const fromEndStationToEndDirections = getDirections(endStation.coords, endCoords, 'foot');
+      compositeRoutes.push([
+        {
+          overviewPath: fromStartToStartStationDirections.overview_path,
+          // FIXME if not available
+          duration: fromStartToStartStationDirections.duration,
+          transport: 'foot',
+        },
+        {
+          overviewPath: fromStartStationToEndStationDirections.overview_path,
+          // FIXME if not available
+          duration: fromStartStationToEndStationDirections.duration,
+          stations: {
+            from: startStation,
+            end: endStation,
+          },
+          transport: 'bike',
+        },
+        {
+          overviewPath: fromEndStationToEndDirections.overview_path,
+          // FIXME if not available
+          duration: fromEndStationToEndDirections.duration,
+          transport: 'foot',
+        },
+      ]);
     });
   });
 
-  const pathsByDuration = potentialPaths
+  const compositeRouteByDuration = compositeRoutes
     .slice()
-    .sort((path1, path2) => computePathDuration(path1) - computePathDuration(path2));
-  const shortestPath = pathsByDuration[0];
+    .sort((cr1, cr2) => getCompositeRouteDuration(cr1) - getCompositeRouteDuration(cr2));
 
-  // const routeFromStartToEnd = Google.getRoute(start, end, 'foot');
-  // if (computeRouteDuration(routeFromStartToEnd) < computePathDuration(shortestPath)) {
-  //   // FIXME: Uniform return values.
-  //   return {
-  //     main: routeFromStartToEnd,
-  //     alternative: shortestPathWithReward,
-  //   };
-  // }
+  const shortestCompositeRoute = compositeRouteByDuration[0];
 
-  if (shortestPath.hasReward) {
+  // TODO compare shortestCompositeRoute with on-foot-only path.
+
+  if (mightHaveFewBikesAt(shortestCompositeRoute[1].stations.end, time)) {
     return {
-      main: shortestPath,
+      shortest: shortestCompositeRoute,
       alternative: undefined,
     };
   }
 
-  const shortestPathWithReward = pathsByDuration.find(path => path.hasReward);
+  const shortestAlternativeCompositeRoute = compositeRouteByDuration
+    .find(cr => mightHaveFewBikesAt(cr[1].stations.end, time));
 
   return {
-    main: shortestPath,
-    alternative: shortestPathWithReward,
+    shortest: shortestCompositeRoute,
+    alternative: shortestAlternativeCompositeRoute,
   };
 };
+
+export default shortestPath;
