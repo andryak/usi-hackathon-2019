@@ -42,6 +42,12 @@ const addSearchListener = (searchBox, map, maps, marker, dest) => {
           directionPositions.startPos = {lat: location.lat(), lng: location.lng()};
         }
         if (directionPositions.destPos && directionPositions.startPos) {
+          // Fit both the starting point and the destination into the map.
+          const bounds = new maps.LatLngBounds();
+          bounds.extend(new maps.LatLng(directionPositions.startPos.lat, directionPositions.startPos.lng));
+          bounds.extend(new maps.LatLng(directionPositions.destPos.lat, directionPositions.destPos.lng));
+          map.fitBounds(bounds);
+
           shortestPath(
             maps,
             directionPositions.startPos,
@@ -56,12 +62,11 @@ const addSearchListener = (searchBox, map, maps, marker, dest) => {
                 alternativePaths.forEach((path => path.setMap(null)));
               }
 
-
               var lineSymbol = {
-                path: 'M 0,-1 0,1',
-                strokeOpacity: 1,
-                scale: 5,
-            };
+                  path: 'M 0,-1 0,0',
+                  strokeOpacity: 1,
+                  scale: 5,
+              };
               // Draw shortest path first.
               paths = result.shortest.map(({ transport, overviewPath }) => new maps.Polyline({
                 path: overviewPath,
@@ -95,7 +100,6 @@ const addSearchListener = (searchBox, map, maps, marker, dest) => {
         const title = dest ? 'Destination': 'Starting position';
         marker = createUniqueMarker(map, maps, title, location.lat(), location.lng(), positionMarker, true);
         marker.setMap(map);
-        map.panTo(marker.position);
       }
     })(place);
     searchBox.set('map', map);
