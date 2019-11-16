@@ -4,7 +4,7 @@ import datetime
 import sys
 
 from os import listdir
-from stationToJson import constructStationsDict, mapStationNameToId
+from stationExtractor import constructStationsDict, mapStationNameToId
 
 dir = sys.argv[1]
 
