@@ -70,12 +70,12 @@ const addSearchListener = (searchBox, map, maps, marker, dest) => {
               };
 
               // Draw alternative path, so that it might later be overridden by the shortest path.
-              if (result.alternative){
+              if (result.alternative) {
                 alternativePaths = result.alternative.map(({ transport, overviewPath }) => new maps.Polyline({
                   path: overviewPath,
                   geodesic: true,
                   strokeColor: '#67b485',
-                  strokeOpacity: 1,
+                  strokeOpacity: transport === 'WALKING' ? 0 : 1,
                   strokeWeight: 5,
                   icons: [{
                     icon: lineSymbol,
@@ -90,7 +90,7 @@ const addSearchListener = (searchBox, map, maps, marker, dest) => {
               paths = result.shortest.map(({ transport, overviewPath }) => new maps.Polyline({
                 path: overviewPath,
                 geodesic: true,
-                strokeColor:'rgb(11, 104, 255)',
+                strokeColor: 'rgb(11, 104, 255)',
                 strokeOpacity: transport === 'WALKING' ? 0 : 1,
                 strokeWeight: 5,
                 icons: [{
