@@ -6,7 +6,7 @@ const makeInfoWindow = title => (
   </p>`
 );
 
-export default (map, maps, title, lat, lng, icon, hideInfoWindow)=> {
+export default (map, maps, title, lat, lng, icon, hideInfoWindow, drop=false)=> {
   const marker = new maps.Marker({
     position: {
       lat: Number(lat),
@@ -14,6 +14,7 @@ export default (map, maps, title, lat, lng, icon, hideInfoWindow)=> {
     },
     map: map,
     title,
+    animation: drop && maps.Animation.DROP,
     ...(icon && {icon})
   });
 

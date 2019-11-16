@@ -115,6 +115,7 @@ const addSearchListener = (searchBox, map, maps, kind) => {
         location.lng(),
         positionMarker,
         true,
+        true
       );
       marker.setMap(map);
       if(kind === 'from') {
