@@ -45,6 +45,7 @@ const Sidebar = ({ className, fromRef, toRef, paths, mapHandler }) => {
           </div>
         </div>
         <button
+          className={styles.button}
           onClick={() => {
             runShortestPathAlg(mapHandler.map, mapHandler.maps);
           }}
