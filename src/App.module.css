@@ -4,8 +4,20 @@
 }
 
 .sidebar {
-    width: 24rem;
+    width: 30vw;
     box-shadow: 2px 0 10px -2px #eee;
+}
+
+@media only screen and (max-width: 600px) {
+    .sidebar {
+        width: 100vw;
+        height: 30vh;
+        box-shadow: 2px 0 10px -2px #eee;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 .mainPanel {

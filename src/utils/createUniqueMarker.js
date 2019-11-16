@@ -1,5 +1,3 @@
-import React from 'react';
-
 let selectedInfoWindow = null;
 
 const makeInfoWindow = title => (
