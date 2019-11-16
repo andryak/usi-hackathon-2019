@@ -14,10 +14,10 @@
     margin-left: 30vw;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1050px) {
     .sidebar {
         width: 100vw;
-        height: 30vh;
+        height: 25vh;
         box-shadow: 2px 0 10px -2px #eee;
     }
 
@@ -27,9 +27,9 @@
     }
 
     .mainPanel {
+        margin-top: 25vh;
         margin-left: 0;
-        margin-top: 30vh;
-        height: 70vh;
+        height: 75vh;
         background-color: white;
     }
 }
