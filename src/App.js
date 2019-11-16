@@ -54,8 +54,8 @@ const App = () => {
           onApiLoaded={async (map, maps) => {
             setMapHandler(map);
             const currentPosition = await getCurrentPosition();
-            await map.setCenter(currentPosition);
             await showDirection(map, maps, currentPosition, 'massagno');
+            await map.setCenter(currentPosition);
           }}
         />
       </main>
