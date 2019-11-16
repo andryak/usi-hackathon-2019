@@ -1,11 +1,17 @@
 .container {
-    display: flex;
     height: 100vh;
 }
 
 .sidebar {
     width: 30vw;
-    box-shadow: 2px 0 10px -2px #eee;
+    box-shadow: 2px 0 15px -5px #aaa;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    z-index: 1;
+}
+
+.mainPanel {
+    margin-left: 30vw;
 }
 
 @media only screen and (max-width: 600px) {
@@ -14,12 +20,16 @@
         height: 30vh;
         box-shadow: 2px 0 10px -2px #eee;
     }
+
     .container {
         display: flex;
         flex-direction: column;
     }
-}
 
-.mainPanel {
-    flex: 1;
+    .mainPanel {
+        margin-left: 0;
+        margin-top: 30vh;
+        height: 70vh;
+        background-color: white;
+    }
 }
