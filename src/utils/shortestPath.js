@@ -60,11 +60,13 @@ const shortestPath = async (maps, startCoords, endCoords, time) => {
         {
           overviewPath: fromStartToStartStationDirections.overviewPath,
           duration: fromStartToStartStationDirections.duration,
+          distance: fromStartToStartStationDirections.distance,
           transport: 'WALKING',
         },
         {
           overviewPath: fromStartStationToEndStationDirections.overviewPath,
           duration: fromStartStationToEndStationDirections.duration,
+          distance: fromStartStationToEndStationDirections.distance,
           stations: {
             from: startStation,
             end: endStation,
@@ -74,6 +76,7 @@ const shortestPath = async (maps, startCoords, endCoords, time) => {
         {
           overviewPath: fromEndStationToEndDirections.overviewPath,
           duration: fromEndStationToEndDirections.duration,
+          distance: fromEndStationToEndDirections.distance,
           transport: 'WALKING',
         },
       ]);
@@ -90,7 +93,7 @@ const shortestPath = async (maps, startCoords, endCoords, time) => {
   if (onFootDirectRoute.duration < getCompositeRouteDuration(shortestCompositeRoute)) {
     return {
       shortest: [onFootDirectRoute],
-      alternative: undefined,
+      alternative: undefined, // FIXME: returns hortest alternative.
     };
   }
 
