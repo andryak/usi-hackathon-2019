@@ -19,7 +19,7 @@ const Credits = ({ onBack, className }) => (
         <div className={styles.creditsItem}>Other icons provided by <a href={'https://material-ui.com'}>Material-UI</a> and <a href={'https://fontawesome.com/'}>FontAwesome</a>.</div>
         <div className={styles.creditsItem}>Maps and directions provided by <a href={'https://google.com'}>Google</a>.</div>
         <div className={styles.creditsItem}>Bike usage data provided by <a href={'https://www.publibike.ch'}>PubliBike</a>.</div>
-        <div className={styles.creditsItem}>Application developed by <b>Andrea Aquino</b>, <b>Virginie Blancs</b>, <b>Nicola Damian</b>, <b>Giuseppe Mendola</b>, <b>Gabriele Prestifilippo</b> and <b>Amedeo Zucchetti</b>.</div>
+        <div className={styles.creditsItem}>Application developed by <b>Andrea Aquino</b>, <b>Virginie Blancs</b>, <b>Michele Damian</b>, <b>Giuseppe Mendola</b>, <b>Gabriele Prestifilippo</b> and <b>Amedeo Zucchetti</b>.</div>
       </div>
   </nav>
 );
