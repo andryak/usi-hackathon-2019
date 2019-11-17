@@ -42,6 +42,7 @@ export const runShortestPathAlg = (map, maps, onPathFound) => {
         strokeOpacity: 0.5,
       };
 
+      const pathsOffset = 0.00002;
       const totalSeconds = 2000; // total seconds to animate the path
       if (result.alternative) {
         let totalStepsAlternative = result.alternative.reduce((acc, { overviewPath }) => acc += overviewPath.length, 0);
@@ -60,7 +61,10 @@ export const runShortestPathAlg = (map, maps, onPathFound) => {
           });
           let animatedPath = new maps.MVCArray();
           for ( let i = 0; i < overviewPath.length; i++) {
-            const currentCoord = new maps.LatLng(`${overviewPath[i].lat}`, `${overviewPath[i].lng}`);
+            const currentCoord = new maps.LatLng(
+              `${overviewPath[i].lat + (i === 0 ? 0 : pathsOffset)}`,
+              `${overviewPath[i].lng + (i === 0 ? 0 : pathsOffset)}`
+            );
             if (i === 0) {
               animatedPath.push(currentCoord);
               pathPolyLine.setPath(animatedPath);
@@ -72,6 +76,7 @@ export const runShortestPathAlg = (map, maps, onPathFound) => {
           }
           return pathPolyLine;
         });
+        directionPositions.setAlternativePath(alternativePaths);
         alternativePaths.forEach(path => path.setMap(map))
       }
 
@@ -87,13 +92,16 @@ export const runShortestPathAlg = (map, maps, onPathFound) => {
           geodesic: true,
           strokeOpacity: transport === 'WALKING' ? 0 : 0.5,
           strokeColor: 'rgb(11, 104, 255)',
-          strokeWeight: 4,
+          strokeWeight: 6,
           ...(transport === 'WALKING' && { icons: [{ icon: lineSymbol, offset: '0', repeat: '10px' }]}),
         });
 
         let animatedPath = new maps.MVCArray();
         for ( let i = 0; i < overviewPath.length; i++) {
-          const currentCoord = new maps.LatLng(`${overviewPath[i].lat}`, `${overviewPath[i].lng}`);
+          const currentCoord = new maps.LatLng(
+            `${overviewPath[i].lat - (i === 0 ? 0 : pathsOffset)}`,
+            `${overviewPath[i].lng - (i === 0 ? 0 : pathsOffset)}`
+          );
           if (i === 0) {
             animatedPath.push(currentCoord);
             pathPolyLine.setPath(animatedPath);
@@ -105,7 +113,7 @@ export const runShortestPathAlg = (map, maps, onPathFound) => {
         }
         return pathPolyLine;
       });
-
+      directionPositions.setShortestPath(paths);
       paths.forEach(path => path.setMap(map));
       onPathFound(result);
     });
