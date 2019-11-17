@@ -20,7 +20,7 @@ export const runShortestPathAlg = (map, maps, onPathFound) => {
   const bounds = new maps.LatLngBounds();
   bounds.extend(new maps.LatLng(startPos.lat, startPos.lng));
   bounds.extend(new maps.LatLng(destPos.lat, destPos.lng));
-  map.fitBounds(bounds);
+  map.fitBounds(bounds, 70);
 
   shortestPath(
     maps,
@@ -34,35 +34,78 @@ export const runShortestPathAlg = (map, maps, onPathFound) => {
       }
       if (alternativePaths){
         alternativePaths.forEach((path => path.setMap(null)));
+        // Draw alternative path, so that it might later be overridden by the shortest path.
       }
 
-      var lineSymbol = {
+      let lineSymbol = {
         path: 'M 0,-0.25 0.25,0 0,0.25 -0.25,0 0,-0.25',
         strokeOpacity: 0.5,
       };
 
-      // Draw alternative path, so that it might later be overridden by the shortest path.
+      const totalSeconds = 2000; // total seconds to animate the path
       if (result.alternative) {
-        alternativePaths = result.alternative.map(({ transport, overviewPath }) => new maps.Polyline({
-          path: overviewPath,
-          geodesic: true,
-          strokeOpacity: transport === 'WALKING' ? 0 : 0.5,
-          strokeColor: 'rgb(255,96,0)',
-          strokeWeight: 4,
-          ...(transport === 'WALKING' && { icons: [{ icon: lineSymbol, offset: '10px', repeat: '10px' }]}),
-        }));
+        let totalStepsAlternative = result.alternative.reduce((acc, { overviewPath }) => acc += overviewPath.length, 0);
+        const animationDelayAlternative = totalSeconds/totalStepsAlternative;
+        alternativePaths = result.alternative.map(({ transport, overviewPath }, index) => {
+          let delay = 0;
+          for ( let pathIndex = 0; pathIndex < index; ++pathIndex) {
+            delay += animationDelayAlternative * result.alternative[pathIndex].overviewPath.length;
+          }
+          const pathPolyLine = new maps.Polyline({
+            geodesic: true,
+            strokeOpacity: transport === 'WALKING' ? 0 : 0.5,
+            strokeColor: 'rgb(255,96,0)',
+            strokeWeight: 4,
+            ...(transport === 'WALKING' && {icons: [{icon: lineSymbol, offset: '10px', repeat: '10px'}]}),
+          });
+          let animatedPath = new maps.MVCArray();
+          for ( let i = 0; i < overviewPath.length; i++) {
+            const currentCoord = new maps.LatLng(`${overviewPath[i].lat}`, `${overviewPath[i].lng}`);
+            if (i === 0) {
+              animatedPath.push(currentCoord);
+              pathPolyLine.setPath(animatedPath);
+            } else {
+              setTimeout(() => {
+                animatedPath.push(currentCoord);
+              }, (animationDelayAlternative * i) + delay);
+            }
+          }
+          return pathPolyLine;
+        });
         alternativePaths.forEach(path => path.setMap(map))
       }
 
       // Draw shortest path
-      paths = result.shortest.map(({ transport, overviewPath }) => new maps.Polyline({
-        path: overviewPath,
-        geodesic: true,
-        strokeOpacity: transport === 'WALKING' ? 0 : 0.5,
-        strokeColor: 'rgb(11, 104, 255)',
-        strokeWeight: 4,
-        ...(transport === 'WALKING' && { icons: [{ icon: lineSymbol, offset: '0', repeat: '10px' }]}),
-      }));
+      let totalStepsShortest = result.shortest.reduce((acc, { overviewPath }) => acc += overviewPath.length, 0);
+      const animationDelayShortest = totalSeconds/totalStepsShortest;
+      paths = result.shortest.map(({ transport, overviewPath }, index) => {
+        let delay = 0;
+        for ( let pathIndex = 0; pathIndex < index; ++pathIndex) {
+          delay += animationDelayShortest * result.shortest[pathIndex].overviewPath.length;
+        }
+        const pathPolyLine = new maps.Polyline({
+          geodesic: true,
+          strokeOpacity: transport === 'WALKING' ? 0 : 0.5,
+          strokeColor: 'rgb(11, 104, 255)',
+          strokeWeight: 4,
+          ...(transport === 'WALKING' && { icons: [{ icon: lineSymbol, offset: '0', repeat: '10px' }]}),
+        });
+
+        let animatedPath = new maps.MVCArray();
+        for ( let i = 0; i < overviewPath.length; i++) {
+          const currentCoord = new maps.LatLng(`${overviewPath[i].lat}`, `${overviewPath[i].lng}`);
+          if (i === 0) {
+            animatedPath.push(currentCoord);
+            pathPolyLine.setPath(animatedPath);
+          } else {
+            setTimeout(() => {
+              animatedPath.push(currentCoord);
+            }, (animationDelayShortest * i) + delay);
+          }
+        }
+        return pathPolyLine;
+      });
+
       paths.forEach(path => path.setMap(map));
       onPathFound(result);
     });
