@@ -153,6 +153,15 @@
     margin-top: 2rem;
 }
 
+.tripTitle {
+    margin: 0 2rem 1rem 2rem;
+    font-size: 0.9rem;
+}
+
+.tripTitleHighlight {
+    font-weight: bold;
+}
+
 .tripTimeContainer {
     flex-direction: row;
     flex: 1;

@@ -8,6 +8,7 @@ import {runShortestPathAlg} from '../../utils/addGoogleSearchBox';
 import geoCoder from '../../utils/geoCoder';
 import hotStationLogo from '../../assets/station_marker_hot.svg';
 import TabBar from './tab-bar';
+import TripTitle from './TripTitle';
 import directionPositions from '../../utils/directionPositions';
 
 const getPlaces = paths => {
@@ -32,10 +33,15 @@ const Sidebar = ({ className, fromRef, toRef, mapHandler }) => {
   const tabs = [];
   if (shortestPath) {
     const places = getPlaces(shortestPath);
+    const from = places[0];
+    const to = places[places.length - 1];
+    const duration = shortestPath.reduce((acc, route) => acc + route.duration, 0);
+    const distance = shortestPath.reduce((acc, route) => acc + route.distance, 0);
     tabs.push({
       label: 'Shortest',
       component: (
         <div className={styles.overallTripContainer}>
+          <TripTitle from={from} to={to} duration={duration} distance={distance} />
           {shortestPath.map((path, i) => (
             <TripTime alternative={false} path={path} key={i} from={places[i]} to={places[i + 1]}/>
           ))}
@@ -45,10 +51,15 @@ const Sidebar = ({ className, fromRef, toRef, mapHandler }) => {
   }
   if (alternativePath) {
     const places = getPlaces(alternativePath);
+    const from = places[0];
+    const to = places[places.length - 1];
+    const duration = alternativePath.reduce((acc, route) => acc + route.duration, 0);
+    const distance = alternativePath.reduce((acc, route) => acc + route.distance, 0);
     tabs.push({
       label: 'Eco',
       component: (
         <div className={styles.overallTripContainer}>
+          <TripTitle from={from} to={to} duration={duration} distance={distance} />
           {alternativePath.map((path, i) => (
             <TripTime alternative={true} path={path} key={i} from={places[i]} to={places[i + 1]} />
           ))}
