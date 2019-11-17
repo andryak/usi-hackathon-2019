@@ -8,6 +8,7 @@ import {runShortestPathAlg} from '../../utils/addGoogleSearchBox';
 import geoCoder from '../../utils/geoCoder';
 import hotStationLogo from '../../assets/station_marker_hot.svg';
 import TabBar from './tab-bar';
+import Credits from './Credits';
 import TripTitle from './TripTitle';
 import directionPositions from '../../utils/directionPositions';
 
@@ -26,6 +27,11 @@ const getPlaces = paths => {
 
 const Sidebar = ({ className, fromRef, toRef, mapHandler }) => {
   const [paths, setPaths] = useState(null);
+  const [isCreditsVisible, setIsCreditsVisible] = useState(false);
+
+  if  (isCreditsVisible) {
+    return <Credits onBack={() => setIsCreditsVisible(false)} className={className} />;
+  }
 
   const shortestPath = paths ? paths.shortest : null;
   const alternativePath = paths ? paths.alternative: null;
@@ -125,12 +131,22 @@ const Sidebar = ({ className, fromRef, toRef, mapHandler }) => {
         )}
       </div>
       <footer className={styles.footer}>
+        <div className={styles.footerInfo}>
           <div>
             <img src={hotStationLogo} width={26} alt={'marker'} />
           </div>
           <div className={styles.legend}>
             <span>Stations with this symbol are usually on high demand at this time. Travel there to help your fellow bikers and earn awesome rewards!</span>
           </div>
+        </div>
+        <div className={styles.creditsButtonContainer}>
+          <button
+            className={styles.creditsButton}
+            onClick={() => setIsCreditsVisible(true)}
+          >
+            Credits
+          </button>
+        </div>
       </footer>
     </nav>
   );
