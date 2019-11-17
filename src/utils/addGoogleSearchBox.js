@@ -38,7 +38,7 @@ export const runShortestPathAlg = (map, maps, onPathFound) => {
 
       var lineSymbol = {
         path: 'M 0,-0.25 0.25,0 0,0.25 -0.25,0 0,-0.25',
-        strokeOpacity: 1,
+        strokeOpacity: 0.5,
       };
 
       // Draw alternative path, so that it might later be overridden by the shortest path.
@@ -58,14 +58,13 @@ export const runShortestPathAlg = (map, maps, onPathFound) => {
       paths = result.shortest.map(({ transport, overviewPath }) => new maps.Polyline({
         path: overviewPath,
         geodesic: true,
-        strokeOpacity: transport === 'WALKING' ? 0 : 1,
+        strokeOpacity: transport === 'WALKING' ? 0 : 0.5,
         strokeColor: 'rgb(11, 104, 255)',
         strokeWeight: 4,
         ...(transport === 'WALKING' && { icons: [{ icon: lineSymbol, offset: '0', repeat: '10px' }]}),
       }));
       paths.forEach(path => path.setMap(map));
       onPathFound(result);
-
     });
 };
 
@@ -111,11 +110,13 @@ const addSearchListener = (searchBox, map, maps, kind) => {
           lat: location.lat(),
           lng: location.lng(),
         });
+        directionPositions.setDestPlace(place.name);
       } else {
         directionPositions.setStart( {
           lat: location.lat(),
           lng: location.lng(),
         });
+        directionPositions.setStartPlace(place.name);
       }
 
       marker = createUniqueMarker(
@@ -138,9 +139,6 @@ const addSearchListener = (searchBox, map, maps, kind) => {
     }
     searchBox.set('map', map);
     map.panTo(location);
-
-
-
   });
 };
 

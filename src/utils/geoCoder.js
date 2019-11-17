@@ -11,9 +11,11 @@ export default async (mapHandler, inputRef, kind) => {
   let markerIcon;
   if (kind === 'start') {
     directionPositions.setStart(currentPosition)
+    directionPositions.setStartPlace('your location')
     markerIcon = positionMarker;
   } else {
     directionPositions.setDest(currentPosition)
+    directionPositions.setDestPlace('your location')
     markerIcon = flagIcon;
   }
 
