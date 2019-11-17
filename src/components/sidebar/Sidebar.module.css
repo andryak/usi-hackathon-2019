@@ -35,6 +35,24 @@
     border-bottom: 5px solid #943480;
 }
 
+
+.footer{
+    flex-direction:row;
+    align-items: center;
+    display:flex;
+    background-color: #f2e8f3;
+    padding:2rem;
+}
+
+.hotPoint{
+    font-size: 2rem;
+}
+
+.legend{
+    margin-left:1rem;
+    text-align: justify;
+}
+
 .button {
     margin-top: 2rem;
     padding: 0.6rem;
@@ -75,6 +93,10 @@
 
     .button {
         margin-top: 1.5rem;
+    }
+
+    .footer {
+        display: none;
     }
 }
 
@@ -249,20 +271,4 @@
     height:2rem;
     width:0;
     align-self: center;
-}
-
-.footer{
-    flex-direction:row;
-    align-items: center;
-    display:flex;
-    background-color: #f2e8f3;
-    padding:2rem;
-}
-
-.hotPoint{
-    font-size: 2rem;
-}
-
-.legend{
-    margin-left:1rem;
 }
