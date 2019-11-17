@@ -6,7 +6,7 @@ import Map from './components/map';
 import luganoStations from './data/stations';
 import getPosition from './utils/getPosition';
 import createUniqueMarker from './utils/createUniqueMarker';
-import addGoogleSearchBox, {runShortestPathAlg} from './utils/addGoogleSearchBox';
+import addGoogleSearchBox from './utils/addGoogleSearchBox';
 import mightHaveFewBikesAt from './utils/mightHaveFewBikesAt';
 import getTime from './utils/getTime';
 const stationLogo = require('./assets/station_marker.svg');

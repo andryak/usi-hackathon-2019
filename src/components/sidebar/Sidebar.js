@@ -8,34 +8,60 @@ import {runShortestPathAlg} from '../../utils/addGoogleSearchBox';
 import geoCoder from '../../utils/geoCoder';
 import hotStationLogo from '../../assets/station_marker_hot.svg';
 import TabBar from './tab-bar';
+import TripTitle from './TripTitle';
+import directionPositions from '../../utils/directionPositions';
 
+const getPlaces = paths => {
+  const places = [];
+  places.push(directionPositions.getPlaces().startPlace);
+  paths.forEach(path => {
+    if (path.stations) {
+      places.push(`${path.stations.from.name} station`);
+      places.push(`${path.stations.end.name} station`);
+    }
+  });
+  places.push(directionPositions.getPlaces().destPlace);
+  return places;
+};
 
 const Sidebar = ({ className, fromRef, toRef, mapHandler }) => {
-    const [paths, setPaths] = useState(null);
+  const [paths, setPaths] = useState(null);
 
   const shortestPath = paths ? paths.shortest : null;
   const alternativePath = paths ? paths.alternative: null;
 
   const tabs = [];
   if (shortestPath) {
+    const places = getPlaces(shortestPath);
+    const from = places[0];
+    const to = places[places.length - 1];
+    const duration = shortestPath.reduce((acc, route) => acc + route.duration, 0);
+    const distance = shortestPath.reduce((acc, route) => acc + route.distance, 0);
     tabs.push({
       label: 'Shortest',
       component: (
         <div className={styles.overallTripContainer}>
+          <TripTitle from={from} to={to} duration={duration} distance={distance} />
           {shortestPath.map((path, i) => (
-            <TripTime alternative={false} path={path} key={i} />
+            <TripTime alternative={false} path={path} key={i} from={places[i]} to={places[i + 1]}/>
           ))}
         </div>
       ),
     })
   }
   if (alternativePath) {
+    const places = getPlaces(alternativePath);
+    const from = places[0];
+    const to = places[places.length - 1];
+    const duration = alternativePath.reduce((acc, route) => acc + route.duration, 0);
+    const distance = alternativePath.reduce((acc, route) => acc + route.distance, 0);
     tabs.push({
       label: 'Eco',
       component: (
         <div className={styles.overallTripContainer}>
+          <TripTitle from={from} to={to} duration={duration} distance={distance} />
           {alternativePath.map((path, i) => (
-            <TripTime alternative={true} path={path} key={i} />
+            <TripTime alternative={true} path={path} key={i} from={places[i]} to={places[i + 1]} />
           ))}
         </div>
       ),
@@ -46,7 +72,7 @@ const Sidebar = ({ className, fromRef, toRef, mapHandler }) => {
     <nav className={classNames('Sidebar', className, styles.container)}>
       <header className={styles.header}>
         <div className={styles.title}>
-          <img src={`${process.env.PUBLIC_URL}/biker.svg`} width={42} />
+          <img src={`${process.env.PUBLIC_URL}/biker.svg`} width={42} alt={'logo'} />
           <span className={styles.titleBike}>Bike</span>
           <span className={styles.titleMe}>Me</span>
           <span className={styles.titleThere}>There</span>
@@ -98,14 +124,14 @@ const Sidebar = ({ className, fromRef, toRef, mapHandler }) => {
           />
         )}
       </div>
-    <footer className={styles.footer}>
-        <div>
-          <img src={hotStationLogo} width={26} />
-        </div>
-        <div className={styles.legend}>
-          <span>Stations with this symbol are usually on high demand at this time. Travel there to help your fellow bikers and earn awesome rewards!</span>
-        </div>
-    </footer>
+      <footer className={styles.footer}>
+          <div>
+            <img src={hotStationLogo} width={26} alt={'marker'} />
+          </div>
+          <div className={styles.legend}>
+            <span>Stations with this symbol are usually on high demand at this time. Travel there to help your fellow bikers and earn awesome rewards!</span>
+          </div>
+      </footer>
     </nav>
   );
 };
