@@ -3,6 +3,8 @@
 BikeMeThere is an application for getting around Lugano (potentially other
 cities as well) with PubliBike.
 
+A working demo of the application is available here: [BikeMeThere](https://zuccha.github.io/bike-me-there)
+
 ### Move around by bike
 
 The application will suggest the fastest routes for going towards your 
