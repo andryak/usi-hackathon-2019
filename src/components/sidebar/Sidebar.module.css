@@ -37,10 +37,9 @@
 
 .footer{
     flex-direction:row;
-    align-items: center;
     display:flex;
     background-color: #f2e8f3;
-    padding:2rem;
+    padding:1.5rem;
 }
 
 .hotPoint{
@@ -50,6 +49,9 @@
 .legend{
     margin-left:1rem;
     text-align: justify;
+    hyphens: auto;
+    color: #5c1f52;
+    font-size: 0.85rem;
 }
 
 .button {
