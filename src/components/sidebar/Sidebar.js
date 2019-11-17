@@ -100,10 +100,10 @@ const Sidebar = ({ className, fromRef, toRef, mapHandler }) => {
       </div>
     <footer className={styles.footer}>
         <div>
-            <img src={hotStationLogo} width={30} />
+          <img src={hotStationLogo} width={26} />
         </div>
         <div className={styles.legend}>
-            <span > Stations with this symbol are usually on high demand at this time. Travel there to help your fellow bikers and earn some rewards.</span>
+          <span>Stations with this symbol are usually on high demand at this time. Travel there to help your fellow bikers and earn awesome rewards!</span>
         </div>
     </footer>
     </nav>
