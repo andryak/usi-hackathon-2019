@@ -1,0 +1,30 @@
+.header {
+    display: -webkit-flex;
+    display: flex;
+    background-color: #a75e9a;
+    /*box-shadow: 0 4px 4px -2px rgba(0, 0, 0, .15);*/
+}
+
+.label {
+    cursor: pointer;
+    text-align: center;
+    color: #d9d9d9;
+    border-bottom: 3px solid #a75e9a;
+    padding: 1rem 0;
+    -webkit-flex: 1;
+    flex: 1;
+}
+
+.label:last-child {
+    margin-right: 0;
+}
+
+.marginRight {
+    margin-right: .75rem;
+}
+
+.active {
+    color: #fff;
+    font-weight: bold;
+    /*border-bottom: 3px solid #fff;*/
+}

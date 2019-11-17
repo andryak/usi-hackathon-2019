@@ -7,13 +7,41 @@ import {MyLocation} from '@material-ui/icons';
 import {runShortestPathAlg} from '../../utils/addGoogleSearchBox';
 import geoCoder from '../../utils/geoCoder';
 import hotStationLogo from '../../assets/station_marker_hot.svg';
+import TabBar from './tab-bar';
 
 
 const Sidebar = ({ className, fromRef, toRef, mapHandler }) => {
     const [paths, setPaths] = useState(null);
 
   const shortestPath = paths ? paths.shortest : null;
-  const alternative = paths ? paths.alternative: null;
+  const alternativePath = paths ? paths.alternative: null;
+
+  const tabs = [];
+  if (shortestPath) {
+    tabs.push({
+      label: 'Shortest',
+      component: (
+        <div className={styles.overallTripContainer}>
+          {shortestPath.map((path, i) => (
+            <TripTime alternative={false} path={path} key={i} />
+          ))}
+        </div>
+      ),
+    })
+  }
+  if (alternativePath) {
+    tabs.push({
+      label: 'Eco',
+      component: (
+        <div className={styles.overallTripContainer}>
+          {alternativePath.map((path, i) => (
+            <TripTime alternative={true} path={path} key={i} />
+          ))}
+        </div>
+      ),
+    })
+  }
+
   return (
     <nav className={classNames('Sidebar', className, styles.container)}>
       <header className={styles.header}>
@@ -55,21 +83,20 @@ const Sidebar = ({ className, fromRef, toRef, mapHandler }) => {
         </div>
         <button
           className={styles.button}
-          onClick={() => {
-            runShortestPathAlg(mapHandler.map, mapHandler.maps, setPaths);
-          }}
+          onClick={() => runShortestPathAlg(mapHandler.map, mapHandler.maps, setPaths)}
         >
           Search
         </button>
       </header>
 
       <div className={styles.content}>
-          <div className={styles.overallTripContainer}>
-              {shortestPath && shortestPath.map(path => <TripTime alternative={false} path={path}/>)}
-          </div>
-          <div className={styles.overallTripContainer}>
-              {alternative && alternative.map(path => <TripTime alternative={true} path={path}/>)}
-          </div>
+        {Boolean(tabs.length) && (
+          <TabBar
+            className={styles.tabBar}
+            current={0}
+            tabs={tabs}
+          />
+        )}
       </div>
     <footer className={styles.footer}>
         <div>
