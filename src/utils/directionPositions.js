@@ -13,6 +13,23 @@ const places = {
   destPlace: null,
 };
 
+const polylines = {
+  shortest: null,
+  alternative: null,
+};
+
+function setShortestPath(path) {
+  polylines.shortest = path;
+}
+
+function setAlternativePath(path) {
+  polylines.alternative = path;
+}
+
+function getPolylines() {
+  return polylines
+}
+
 function setStart(latitude) {
   position.startPos = latitude;
 }
@@ -50,6 +67,9 @@ function getPlaces() {
 }
 
 export default  {
+  setShortestPath,
+  setAlternativePath,
+  getPolylines,
   setStart,
   setDest,
   getPositions,
